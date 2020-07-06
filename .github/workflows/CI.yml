@@ -15,8 +15,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      with:
-        ref: master
+
 
     - name: Run 
       run: |
@@ -24,4 +23,7 @@ jobs:
         chmod +x ./shell.sh
         ./shell.sh > china_ip_list.rsc
         rm -rf china_ip_list.txt
+        git add .
+        git commit -m "Update rsc file"
         git push --force 
+
