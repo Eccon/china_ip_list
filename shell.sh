@@ -1,4 +1,6 @@
 {
+TZ="Asia/Shanghai" 
+echo -e "#Last Modified: $(date)"
 echo "/log info \"Start updating CN_IP_List!\""
 echo "/log info \"Start removing old list!\""
 echo "/ip firewall address-list remove [/ip firewall address-list find list=CN]"
