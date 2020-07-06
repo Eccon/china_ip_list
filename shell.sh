@@ -11,4 +11,4 @@ for net in $nets ; do
   echo "add list=CN address=$net "
 done
 echo "/log info \"Importing CN_IP_List finished!\""
-} > test.rsc 
+} > china_ip_list.rsc.rsc 
