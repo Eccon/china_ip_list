@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v2
 
 
-    - name: Run 
+    - name: Run anti-AD
       run: |
         wget https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt
         echo "payload:" > anti-ad-clash.yaml
@@ -25,8 +25,56 @@ jobs:
           echo "  - DOMAIN-SUFFIX,$domain" >> anti-ad-clash.yaml
         done
         rm -rf ./anti-ad-domains.txt
+
+    - name: Run ClashChinaList
+      run: |
+        wget https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf
+        wget https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf
+        wget https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf
+        cat ./accelerated-domains.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > chinadomain.txt
+        echo "payload:" > direct.yaml
+        cat chinadomain.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> direct.yaml           
+        
+        cat ./apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > appletmp.txt
+        echo "payload:" > AppleCN.yaml
+        cat appletmp.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> AppleCN.yaml           
+        sed -i '/apps.apple.com/d' appletmp.txt
+
+        cat ./google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > googletmp.txt
+        echo "payload:" > GoogleCN.yaml
+        cat googletmp.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> GoogleCN.yaml           
+        
+        
+    - name: Run AdguardChinaList
+      run: |
+        cat accelerated-domains.china.conf > adguardtmp.txt
+        cat google.china.conf >> adguardtmp.txt
+        cat apple.china.conf >> adguardtmp.txt
+        cat adguardtmp.txt | tr "\n" "/" | sed -e 's|^|/|' -e 's|\(.*\)|[\1]127.0.0.1:55555|' > accelerated-domains.china.adguardhome.conf
+        echo "https://1.1.1.1/dns-query" >> accelerated-domains.china.adguardhome.conf
+        echo "https://8.8.8.8/dns-query" >> accelerated-domains.china.adguardhome.conf
+        echo "https://208.67.222.222/dns-query" >> accelerated-domains.china.adguardhome.conf
+
+        
+    - name: Run Remove tmpfile
+      run: |
+        rm -rf google.china.conf
+        rm -rf apple.china.conf
+        rm -rf accelerated-domains.china.conf
+        rm -rf ./appletmp.txt
+        rm -rf ./chinadomain.txt
+        rm -rf ./googletmp.txt
+        rm -rf ./adguardtmp.txt
+    - name: Run Push
+      run: |
         git config --global user.email "18576718+Eccon@users.noreply.github.com"
         git config --global user.name "Eccon"
         git add .
-        git commit -m "Update Anti-AD-Clash Rule"
-        git push --force 
+        git commit -m "Update Rule"
+        git push -f 
+        
+
+
+
+
+
