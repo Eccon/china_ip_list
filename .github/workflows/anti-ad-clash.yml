@@ -2,7 +2,7 @@ name: anti-ad-clash
 
 on:
   schedule:
-    - cron: 0 18 * * 1
+    - cron: 0 23 * * *
   push:
     branches: [ master ]
   pull_request:
@@ -38,7 +38,7 @@ jobs:
         cat ./apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > appletmp.txt
         echo "payload:" > AppleCN.yaml
         cat appletmp.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> AppleCN.yaml           
-        sed -i '/apps.apple.com/d' AppleCN.txt
+        sed -i '/apps.apple.com/d' AppleCN.yaml
 
         cat ./google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > googletmp.txt
         echo "payload:" > GoogleCN.yaml
