@@ -36,9 +36,9 @@ jobs:
         cat chinadomain.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> direct.yaml           
         
         cat ./apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > appletmp.txt
+        sed -i '/apps.apple.com/d' appletmp.txt
         echo "payload:" > AppleCN.yaml
         cat appletmp.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> AppleCN.yaml           
-        sed -i '/apps.apple.com/d' AppleCN.yaml
 
         cat ./google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > googletmp.txt
         echo "payload:" > GoogleCN.yaml
@@ -51,6 +51,7 @@ jobs:
         cat appletmp.txt >> adguardtmp.txt
         cat googletmp.txt >> adguardtmp.txt
         cat adguardtmp.txt | tr "\n" "/" | sed -e 's|^|/|' -e 's|\(.*\)|[\1]127.0.0.1:55555|' > accelerated-domains.china.adguardhome.conf
+        echo "" >> accelerated-domains.china.adguardhome.conf
         echo "https://1.1.1.1/dns-query" >> accelerated-domains.china.adguardhome.conf
         echo "https://8.8.8.8/dns-query" >> accelerated-domains.china.adguardhome.conf
         echo "https://208.67.222.222/dns-query" >> accelerated-domains.china.adguardhome.conf
