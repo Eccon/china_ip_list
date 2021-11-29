@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20211129024028
+  - DOMAIN-SUFFIX,#VER=20211129122202
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=56803
+  - DOMAIN-SUFFIX,#TOTAL_LINES=56802
   - DOMAIN-SUFFIX,00-gov.cn
   - DOMAIN-SUFFIX,000123456789.online
   - DOMAIN-SUFFIX,000123456789.site
@@ -29551,7 +29551,6 @@ payload:
   - DOMAIN-SUFFIX,mo.lbmx.com.cn
   - DOMAIN-SUFFIX,lbts.ltd
   - DOMAIN-SUFFIX,lbwcdnjpy.com
-  - DOMAIN-SUFFIX,lc-cn-n1-shared.com
   - DOMAIN-SUFFIX,lc442.com
   - DOMAIN-SUFFIX,lcdnw.com
   - DOMAIN-SUFFIX,lcentntel.com
