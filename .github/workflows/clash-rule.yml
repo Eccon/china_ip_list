@@ -33,8 +33,8 @@ jobs:
         wget https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf
         cat ./accelerated-domains.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > chinadomain.txt
         sed -i '/hostloc.com/d' chinadomain.txt
-        echo "payload:" > direct.yaml
-        cat chinadomain.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> direct.yaml           
+        echo "payload:" > directbak.yaml
+        cat chinadomain.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> directbak.yaml           
         
         cat ./apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > appletmp.txt
         sed -i '/apps.apple.com/d' appletmp.txt
