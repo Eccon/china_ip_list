@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20211211024230
+  - DOMAIN-SUFFIX,#VER=20211211181722
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=57263
+  - DOMAIN-SUFFIX,#TOTAL_LINES=57261
   - DOMAIN-SUFFIX,00-gov.cn
   - DOMAIN-SUFFIX,000123456789.online
   - DOMAIN-SUFFIX,000123456789.site
@@ -11061,6 +11061,7 @@ payload:
   - DOMAIN-SUFFIX,med.bystolicsavings.com
   - DOMAIN-SUFFIX,wap.bytdzsw.com
   - DOMAIN-SUFFIX,dm.bytedance.com
+  - DOMAIN-SUFFIX,p6-ad-sign.byteimg.com/
   - DOMAIN-SUFFIX,bytemgdd.com
   - DOMAIN-SUFFIX,wap001.bytravel.cn
   - DOMAIN-SUFFIX,byvihare.com
@@ -12420,6 +12421,7 @@ payload:
   - DOMAIN-SUFFIX,sltint.adv.ott.cibntv.net
   - DOMAIN-SUFFIX,topapi.cp12.ott.cibntv.net
   - DOMAIN-SUFFIX,val.atm.cp31.ott.cibntv.net
+  - DOMAIN-SUFFIX,vali-g1.cp31.ott.cibntv.net
   - DOMAIN-SUFFIX,yikrmn.ciceksepeti.com
   - DOMAIN-SUFFIX,cieh.mx
   - DOMAIN-SUFFIX,fpc.ciel.com
@@ -26364,7 +26366,6 @@ payload:
   - DOMAIN-SUFFIX,instana.io
   - DOMAIN-SUFFIX,instancetour.info
   - DOMAIN-SUFFIX,etcwmg.instant-gaming.com
-  - DOMAIN-SUFFIX,instant.page
   - DOMAIN-SUFFIX,instantbannercreator.com
   - DOMAIN-SUFFIX,instantdollarz.com
   - DOMAIN-SUFFIX,instantfox.co
@@ -40121,7 +40122,6 @@ payload:
   - DOMAIN-SUFFIX,qhdymdc.com
   - DOMAIN-SUFFIX,qhdzljxsb.cn
   - DOMAIN-SUFFIX,qhgbkr.cn
-  - DOMAIN-SUFFIX,jspassport.ssl.qhimg.com
   - DOMAIN-SUFFIX,top.h.qhimg.com
   - DOMAIN-SUFFIX,qhmrasvwzbwjpz.com
   - DOMAIN-SUFFIX,top.h.qhmsg.com
@@ -44194,7 +44194,6 @@ payload:
   - DOMAIN-SUFFIX,adservice.sigmob.cn
   - DOMAIN-SUFFIX,t.signalayer.com
   - DOMAIN-SUFFIX,a8cv.signalift.com
-  - DOMAIN-SUFFIX,service.signalr.net
   - DOMAIN-SUFFIX,signaly.co
   - DOMAIN-SUFFIX,signatu.com
   - DOMAIN-SUFFIX,significantlyentering.com
@@ -48148,7 +48147,6 @@ payload:
   - DOMAIN-SUFFIX,marketing.threadsol.com
   - DOMAIN-SUFFIX,threat-analytics.com
   - DOMAIN-SUFFIX,static-img.threatbook.cn
-  - DOMAIN-SUFFIX,threatbook.cn
   - DOMAIN-SUFFIX,threatenlaid.com
   - DOMAIN-SUFFIX,metrics.three.co.uk
   - DOMAIN-SUFFIX,smetrics.three.co.uk
