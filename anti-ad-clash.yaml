@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20211214024059
+  - DOMAIN-SUFFIX,#VER=20211214190406
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=57323
+  - DOMAIN-SUFFIX,#TOTAL_LINES=57322
   - DOMAIN-SUFFIX,00-gov.cn
   - DOMAIN-SUFFIX,000123456789.online
   - DOMAIN-SUFFIX,000123456789.site
@@ -47296,7 +47296,6 @@ payload:
   - DOMAIN-SUFFIX,bcfeedback.taobao.com
   - DOMAIN-SUFFIX,detail.taobao.com
   - DOMAIN-SUFFIX,eco.taobao.com
-  - DOMAIN-SUFFIX,err.taobao.com
   - DOMAIN-SUFFIX,fourier.taobao.com
   - DOMAIN-SUFFIX,h-adashx.ut.taobao.com
   - DOMAIN-SUFFIX,h-adashx4yt.ut.taobao.com
