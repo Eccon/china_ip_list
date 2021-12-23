@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20211223024310
+  - DOMAIN-SUFFIX,#VER=20211223231647
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=57494
+  - DOMAIN-SUFFIX,#TOTAL_LINES=57490
   - DOMAIN-SUFFIX,00-gov.cn
   - DOMAIN-SUFFIX,000123456789.online
   - DOMAIN-SUFFIX,000123456789.site
@@ -8328,7 +8328,6 @@ payload:
   - DOMAIN-SUFFIX,anti-bot.baidu.com
   - DOMAIN-SUFFIX,as1.wenku.baidu.com
   - DOMAIN-SUFFIX,baifen.music.baidu.com
-  - DOMAIN-SUFFIX,boxer.baidu.com
   - DOMAIN-SUFFIX,browserkernel.baidu.com
   - DOMAIN-SUFFIX,bzclk.baidu.com
   - DOMAIN-SUFFIX,caclick.baidu.com
@@ -44459,7 +44458,6 @@ payload:
   - DOMAIN-SUFFIX,assets.simplifydigital.co.uk
   - DOMAIN-SUFFIX,simplisticstem.com
   - DOMAIN-SUFFIX,simplycast.us
-  - DOMAIN-SUFFIX,simplyhired.com
   - DOMAIN-SUFFIX,simplyjmp.com
   - DOMAIN-SUFFIX,simplymeasured.com
   - DOMAIN-SUFFIX,stats.simplytel.de
@@ -53253,7 +53251,6 @@ payload:
   - DOMAIN-SUFFIX,windowmentaria.com
   - DOMAIN-SUFFIX,windows-remora-system.com
   - DOMAIN-SUFFIX,activity.windows.com
-  - DOMAIN-SUFFIX,wns.windows.com
   - DOMAIN-SUFFIX,bn2wns1.wns.windows.com
   - DOMAIN-SUFFIX,bn3sch020010558.wns.windows.com
   - DOMAIN-SUFFIX,bn3sch020010560.wns.windows.com
@@ -54170,7 +54167,6 @@ payload:
   - DOMAIN-SUFFIX,x4pollyxxpush.com
   - DOMAIN-SUFFIX,x57772.com
   - DOMAIN-SUFFIX,stats.x5x.host
-  - DOMAIN-SUFFIX,x6img.com
   - DOMAIN-SUFFIX,x6z6.com
   - DOMAIN-SUFFIX,x70e.com
   - DOMAIN-SUFFIX,m.x78tg.cn
