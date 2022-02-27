@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20220226024048
+  - DOMAIN-SUFFIX,#VER=20220227093606
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=58602
+  - DOMAIN-SUFFIX,#TOTAL_LINES=58597
   - DOMAIN-SUFFIX,00-gov.cn
   - DOMAIN-SUFFIX,000123456789.online
   - DOMAIN-SUFFIX,000123456789.site
@@ -604,7 +604,6 @@ payload:
   - DOMAIN-SUFFIX,188server.com
   - DOMAIN-SUFFIX,marketing.188weststjames.com
   - DOMAIN-SUFFIX,188xiaoba.net
-  - DOMAIN-SUFFIX,e.189.cn
   - DOMAIN-SUFFIX,189zj.cn
   - DOMAIN-SUFFIX,www.189zj.cn
   - DOMAIN-SUFFIX,18a8f5a1c1.com
@@ -16349,9 +16348,6 @@ payload:
   - DOMAIN-SUFFIX,df9377.com
   - DOMAIN-SUFFIX,m.dfanf.com
   - DOMAIN-SUFFIX,dfb79196408612f1.com
-  - DOMAIN-SUFFIX,dfscdn.dfcfw.com
-  - DOMAIN-SUFFIX,empic.dfcfw.com
-  - DOMAIN-SUFFIX,gbfek.dfcfw.com
   - DOMAIN-SUFFIX,dfcwg.com
   - DOMAIN-SUFFIX,f5.dfcwg.com
   - DOMAIN-SUFFIX,dfdjilnzqgtow.com
@@ -38100,7 +38096,6 @@ payload:
   - DOMAIN-SUFFIX,parcrescentimportantly.com
   - DOMAIN-SUFFIX,parding.info
   - DOMAIN-SUFFIX,pardnergam.com
-  - DOMAIN-SUFFIX,go.pardot.com
   - DOMAIN-SUFFIX,parentful.club
   - DOMAIN-SUFFIX,discover.parexel.com
   - DOMAIN-SUFFIX,parflushfeet.com
