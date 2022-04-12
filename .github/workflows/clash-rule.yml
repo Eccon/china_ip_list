@@ -28,6 +28,10 @@ jobs:
 
     - name: Run ClashChinaList
       run: |
+        wget https://raw.githubusercontent.com/tmplink/IPDB/main/ipv4/cidr/CN.txt
+        echo "payload:" > ./Clash-CNIP.yaml
+        sed  "s/^/  - '&/g"  ./CN.txt >> ./Clash-CNIP-tmp.yaml
+        sed  "s/$/'&/g" ./Clash-CNIP-tmp.yaml >> ./Clash-CNIP.yaml
         wget https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf
         wget https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf
         wget https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf
@@ -67,6 +71,8 @@ jobs:
         rm -rf ./chinadomain.txt
         rm -rf ./googletmp.txt
         rm -rf ./adguardtmp.txt
+        rm -rf ./CN.txt
+        rm -rf ./Clash-CNIP-tmp.yaml
     - name: Run Push
       run: |
         git config --global user.email "18576718+Eccon@users.noreply.github.com"
