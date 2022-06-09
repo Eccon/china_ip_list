@@ -50,6 +50,10 @@ jobs:
         echo "payload:" > GoogleCN.yaml
         cat googletmp.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> GoogleCN.yaml           
         
+        URL="https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" && curl -s $URL | head -2  >  ./CNIP.yaml && echo "payload:" >> ./CNIP.yaml && curl -s $URL | tail +3 | while read line
+        do
+        echo "  - '$line'" >> ./CNIP.yaml
+        done
         
     - name: Run AdguardChinaList
       run: |
