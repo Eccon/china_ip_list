@@ -55,6 +55,16 @@ jobs:
         echo "  - '$line'" >> ./CNIP.yaml
         done
         
+        # GoogleIP
+        echo "payload:" > ./GoogleIP.yaml
+        curl -s https://www.gstatic.com/ipranges/goog.json | jq --raw-output '.prefixes[] | select(.ipv4Prefix != null ) | .ipv4Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
+        curl -s https://www.gstatic.com/ipranges/cloud.json | jq --raw-output '.prefixes[] | select(.ipv4Prefix != null ) | .ipv4Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
+        curl -s https://www.gstatic.com/ipranges/goog.json | jq --raw-output '.prefixes[] | select(.ipv6Prefix != null ) | .ipv6Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
+        curl -s https://www.gstatic.com/ipranges/cloud.json | jq --raw-output '.prefixes[] | select(.ipv6Prefix != null ) | .ipv6Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
+        
+        
+        
+        
     - name: Run AdguardChinaList
       run: |
         cat chinadomain.txt > adguardtmp.txt
