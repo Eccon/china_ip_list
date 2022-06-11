@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20220611024418
+  - DOMAIN-SUFFIX,#VER=20220611223306
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=61109
+  - DOMAIN-SUFFIX,#TOTAL_LINES=61104
   - DOMAIN-SUFFIX,00-gov.cn
   - DOMAIN-SUFFIX,000123456789.online
   - DOMAIN-SUFFIX,000123456789.site
@@ -1340,7 +1340,6 @@ payload:
   - DOMAIN-SUFFIX,37see.com
   - DOMAIN-SUFFIX,cs.37see.com
   - DOMAIN-SUFFIX,p.37see.com
-  - DOMAIN-SUFFIX,37signals.com
   - DOMAIN-SUFFIX,image.37wan.cn
   - DOMAIN-SUFFIX,37wan.com
   - DOMAIN-SUFFIX,a.clickdata.37wan.com
@@ -6520,7 +6519,6 @@ payload:
   - DOMAIN-SUFFIX,ttjx-online.cn-hangzhou.log.aliyuncs.com
   - DOMAIN-SUFFIX,xz-development.oss-cn-beijing.aliyuncs.com
   - DOMAIN-SUFFIX,sspmiaoshuo.cn-hangzhou.log.aliyuncs.com
-  - DOMAIN-SUFFIX,arms-retcode.aliyuncs.com
   - DOMAIN-SUFFIX,aliyuncss.com
   - DOMAIN-SUFFIX,aliyune.xyz
   - DOMAIN-SUFFIX,aliyunf.xyz
@@ -17946,7 +17944,6 @@ payload:
   - DOMAIN-SUFFIX,douthosh.net
   - DOMAIN-SUFFIX,t.douyaobuy.com
   - DOMAIN-SUFFIX,tt.douyaobuy.com
-  - DOMAIN-SUFFIX,msg.douyu.com
   - DOMAIN-SUFFIX,wan.douyu.com
   - DOMAIN-SUFFIX,g.wan.douyu.com
   - DOMAIN-SUFFIX,club-img.douyucdn.cn
@@ -35109,7 +35106,6 @@ payload:
   - DOMAIN-SUFFIX,stats.mituyu.com
   - DOMAIN-SUFFIX,gg.miued.com
   - DOMAIN-SUFFIX,ccc.sys.miui.com
-  - DOMAIN-SUFFIX,browser.miui.com
   - DOMAIN-SUFFIX,hd.browser.miui.com
   - DOMAIN-SUFFIX,httpdns.browser.miui.com
   - DOMAIN-SUFFIX,logupdate.avlyun.sec.miui.com
@@ -48718,7 +48714,6 @@ payload:
   - DOMAIN-SUFFIX,stackattacka.com
   - DOMAIN-SUFFIX,stats.stackingthebricks.com
   - DOMAIN-SUFFIX,trackla.stackla.com
-  - DOMAIN-SUFFIX,stackpathdns.com
   - DOMAIN-SUFFIX,stats.stacks.org
   - DOMAIN-SUFFIX,bdzcck.stadiumgoods.com
   - DOMAIN-SUFFIX,cn1.stadiumgoods.com
