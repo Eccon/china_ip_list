@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20220702024432
+  - DOMAIN-SUFFIX,#VER=20220703110823
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=61149
+  - DOMAIN-SUFFIX,#TOTAL_LINES=61148
   - DOMAIN-SUFFIX,000123456789.online
   - DOMAIN-SUFFIX,000123456789.site
   - DOMAIN-SUFFIX,000123456789.space
@@ -26827,7 +26827,6 @@ payload:
   - DOMAIN-SUFFIX,iclickcdn.com
   - DOMAIN-SUFFIX,iclive.com
   - DOMAIN-SUFFIX,ads.icloseli.cn
-  - DOMAIN-SUFFIX,metrics.icloud.com
   - DOMAIN-SUFFIX,icmlfqdb.com
   - DOMAIN-SUFFIX,icnmecrw.com
   - DOMAIN-SUFFIX,icoawhou.com
