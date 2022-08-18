@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tput sgr0; clear
+# tput sgr0; clear
 
 #调整时区
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  
@@ -144,17 +144,17 @@ function Decision {
 
 
 ## Install Seedbox Environment
-tput sgr0; clear
+#tput sgr0; clear
 normal_1; echo "Start Installing Seedbox Environment"; warn_2
 source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/seedbox_installation.sh)
 Update
-qBittorrent
+Decision qBittorrent
 # Decision Deluge
 # Decision autoremove-torrents
 
 
 ## Tweaking
-tput sgr0; clear
+#tput sgr0; clear
 normal_1; echo "Start Doing System Tweak"; warn_2
 source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/tweaking.sh)
 # CPU_Tweaking
@@ -162,7 +162,7 @@ source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components
 # Network_Other_Tweaking
 # Scheduler_Tweaking
 # file_open_limit_Tweaking
-kernel_Tweaking
+Decision kernel_Tweaking
 # Decision Tweaked_BBR
 
 ## Configue Boot Script
