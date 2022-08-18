@@ -74,7 +74,6 @@ wget https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-x86_64.tg
 tar -zxvf ./ookla-speedtest-1.2.0-linux-x86_64.tgz
 chmod +x ./speedtest && mv ./speedtest /usr/bin/speedtest
 rm -rf ./speedtest.* ./ookla-speedtest-1.2.0-linux-x86_64.tgz
-wget https://raw.githubusercontent.com/jerry048/Dedicated-Seedbox/main/Install.sh
 speedtest --accept-license --accept-gdpr -s 8099 > /root/speedtest.log
 
 ## Load text color settings
