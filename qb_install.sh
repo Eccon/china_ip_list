@@ -6,34 +6,34 @@
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  
 echo "TZ='Asia/Shanghai'; export TZ" >> /etc/profile && source /etc/profile
 echo “Asia/Shanghai” > /etc/timezone
-echo "************************************************************** " && sleep 3
+
 
 #ll=ls
 cat << EOF >/root/.bashrc
 alias ll='ls --color=auto -lh'
 EOF
-echo "************************************************************** " && sleep 3
+
 #关闭ssh密码登录
 echo  "PasswordAuthentication no" >>  /etc/ssh/sshd_config
 systemctl restart sshd
-echo "************************************************************** " && sleep 3
+
 # IPV4 Perfer
 echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
-echo "************************************************************** " && sleep 3
+
 #Swap file
 dd if=/dev/zero of=/var/swapfile bs=1M count=512
 chmod 0600 /var/swapfile
 mkswap /var/swapfile
 swapon /var/swapfile
 echo "/var/swapfile swap swap defaults 0 0" >>/etc/fstab
-echo "************************************************************** " && sleep 3
+
 #关闭预留5%空间
 #vda1
 tune2fs -m 0 /dev/sda1
-echo "************************************************************** " && sleep 3
+
 #创建保留空间
 dd if=/dev/zero of=/root/zerofile bs=1M count=100
-echo "************************************************************** " && sleep 3
+
 ##CPU Disk 性能优化配置
 apt-get update
 apt-get -qqy install tuned
@@ -55,7 +55,7 @@ elevator=none
 cmdline=skew_tick=1
 EOF
 tuned-adm profile profile
-echo "************************************************************** " && sleep 3
+
 #网卡优化 
 touch /etc/rc.local && chmod +x /etc/rc.local
 cat <<'EOF' > /etc/rc.local
@@ -64,14 +64,11 @@ interface=$(ip -o -4 route show to default | awk '{print $5}')
 ifconfig $interface txqueuelen 10000
 exit 0
 EOF
-echo "************************************************************** " && sleep 3
+
 #文件数量 TCP数修改
 echo "$1        hard nofile 1048576" >> /etc/security/limits.conf
 echo "$1       soft nofile 1048576" >> /etc/security/limits.conf
-echo "************************************************************** " && sleep 3
-#Install vnstat
-apt-get -qqy install vnstat
-echo "************************************************************** " && sleep 3
+
 #Speedtest
 wget https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-x86_64.tgz
 tar -zxvf ./ookla-speedtest-1.2.0-linux-x86_64.tgz
@@ -82,8 +79,8 @@ speedtest --accept-license --accept-gdpr -s 8099 > /root/speedtest.log
 
 ## Load text color settings
 source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/Miscellaneous/tput.sh)
-echo "************************************************************** " && sleep 3
-echo "等待30sdebug " && sleep 30
+
+echo "等待30s" && sleep 30
 ## Check Root Privilege
 if [ $(id -u) -ne 0 ]; then 
     warn_1; echo  "This script needs root permission to run"; normal_4 
@@ -178,4 +175,5 @@ publicip=$(curl https://ipinfo.io/ip)
 [[ ! -z "$qbport" ]] && echo "qBittorrent $version is successfully installed, visit at $publicip:$qbport"
 [[ ! -z "$deport" ]] && echo "Deluge $Deluge_Ver is successfully installed, visit at $publicip:$dewebport"
 [[ ! -z "$bbrx" ]] && echo "Tweaked BBR is successfully installed, please reboot for it to take effect"
- echo "重启后手动执行  ‘\n’ date  \n free -h \n df -h \n ls -lh /root/zerofile \n cat /sys/block/sda/queue/rotational \n ifconfig \n su $1 && ulimit -n \n  "
+ echo "重启后手动执行  ‘\n’ date  \n free -h \n df -h \n ls -lh /root/zerofile \n cat /sys/block/sda/queue/scheduler \n ifconfig \n su $1 && ulimit -n \n  "
+apt-get clean
