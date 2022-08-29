@@ -1,13 +1,14 @@
 #!/bin/bash
-
-# tput sgr0; clear
-#调整时区
+echo "**********************Starting install**********************"
+#TZ
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "TZ='Asia/Shanghai'; export TZ" >> /etc/profile
 echo “Asia/Shanghai” > /etc/timezone
+timedatectl  set-timezone  Asia/Shanghai
+# timedatectl set-local-rtc 1
 
 apt-get update
-apt-get install -qqy vim vnstat
+apt-get install -qqy vim vnstat unzip
 
 #ll=ls
 cat << EOF >/root/.bashrc
@@ -18,7 +19,7 @@ alias ll='ls --color=auto -lh'
 EOF
 source /root/.bashrc
 
-#关闭ssh密码登录
+# disable SSH password login
 echo  "PasswordAuthentication no" >>  /etc/ssh/sshd_config
 systemctl restart sshd
 
@@ -26,7 +27,7 @@ systemctl restart sshd
 #echo "precedence ::ffff:0:0/96  100" >> /etc/gai.conf
 
 #Swap file
-dd if=/dev/zero of=/var/swapfile bs=1M count=256
+dd if=/dev/zero of=/var/swapfile bs=1M count=600
 chmod 0600 /var/swapfile
 mkswap /var/swapfile
 swapon /var/swapfile
@@ -39,15 +40,10 @@ tune2fs -m 0 /dev/sda1
 #创建保留空间
 dd if=/dev/zero of=/root/zerofile bs=1M count=256
 
-#开机启动优化 
-touch /etc/rc.local && chmod +x /etc/rc.local
-cat <<'EOF' > /etc/rc.local
-#!/bin/sh
+#硬盘网卡优化 
 interface=$(ip -o -4 route show to default | awk '{print $5}')
 ifconfig $interface txqueuelen 10000
 echo none > /sys/block/sda/queue/scheduler
-exit 0
-EOF
 
 #Speedtest
 wget https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-x86_64.tgz
@@ -58,33 +54,10 @@ rm -rf ./speedtest.* ./ookla-speedtest-1.2.0-linux-x86_64.tgz
 ## Load text color settings
 source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/Miscellaneous/tput.sh)
 
-## Check Root Privilege
-if [ $(id -u) -ne 0 ]; then 
-    warn_1; echo  "This script needs root permission to run"; normal_4 
-    exit 1 
-fi
-
 ## Grabing information
 username=$1
 password=$2
-cache=$3
-
-Cache1=$(expr $cache \* 65536)
-Cache2=$(expr $cache \* 1024)
-
-## Check existence of input argument in a Bash shell script
-
-if [ -z "$3" ]
-  then
-    warn_1; echo "Please fill in all 3 arguments accordingly: <Username> <Password> <Cache Size(unit:GiB)>"; normal_4
-    exit 1
-fi
-
-re='^[0-9]+$'
-if ! [[ $3 =~ $re ]] ; then
-   warn_1; echo "Cache Size has to be an integer"; normal_4
-   exit 1
-fi
+socks5addr=$3
 
 ## Creating User
 warn_2
@@ -92,39 +65,87 @@ pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 useradd -m -p "$pass" "$username"
 normal_2
 
-## Define Decision
-function Decision {
-	while true; do
-		need_input; read -p "Do you wish to install $1? (Y/N):" yn; normal_1
-		case $yn in
-			[Yy]* ) echo "Installing $1"; $1; break;;
-			[Nn]* ) echo "Skipping"; break;;
-			* ) warn_1; echo "Please answer yes or no."; normal_2;;
-		esac
-	done
-}
+## Install qb
+wget https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/Torrent%20Clients/qBittorrent/qBittorrent/qBittorrent%204.3.9%20-%20libtorrent-v1.2.15/qbittorrent-nox && chmod +x ./qbittorrent-nox;
+mv ./qbittorrent-nox /usr/bin/qbittorrent-nox
 
+touch /etc/systemd/system/qbittorrent-nox@.service
+cat << EOF >/etc/systemd/system/qbittorrent-nox@.service
+[Unit]
+Description=qBittorrent
+After=network.target
 
-## Install Seedbox Environment
+[Service]
+Environment="TZ=Asia/Shanghai"
+Type=forking
+User=$username
+LimitNOFILE=infinity
+ExecStart=/usr/bin/qbittorrent-nox -d
+ExecStop=/usr/bin/killall -w -s 9 /usr/bin/qbittorrent-nox
+Restart=on-failure
+TimeoutStopSec=20
+RestartSec=10
 
-normal_1; echo "Start Installing Seedbox Environment"; warn_2
-source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/seedbox_installation.sh)
-#Update
-Decision qBittorrent
+[Install]
+WantedBy=multi-user.target
+EOF
+    mkdir -p /home/$username/qbittorrent/Downloads && chown $username /home/$username/qbittorrent/Downloads
+    mkdir -p /home/$username/.config/qBittorrent && chown $username /home/$username/.config/qBittorrent
+
+cat << EOF >/home/$username/.config/qBittorrent/qBittorrent.conf
+[AutoRun]
+enabled=false
+program=
+
+[LegalNotice]
+Accepted=true
+
+[BitTorrent]
+Session\AsyncIOThreadsCount=8
+Session\CoalesceReadWrite=true
+Session\SendBufferWatermark=8192
+Session\SendBufferLowWatermark=4096
+Session\SendBufferWatermarkFactor=500
+Session\ValidateHTTPSTrackerCertificate=false
+
+[Preferences]
+Advanced\RecheckOnCompletion=false
+Advanced\trackerPort=9000
+Connection\GlobalDLLimitAlt=60000
+Connection\GlobalUPLimitAlt=5000
+Connection\PortRangeMin=45000
+Connection\UPnP=false
+Connection\Proxy\IP=$socks5addr
+Connection\Proxy\Password=
+Connection\Proxy\Port=8080
+Connection\Proxy\Username=
+Connection\ProxyType=2
+
+Downloads\DiskWriteCacheSize=768
+Downloads\DiskWriteCacheTTL=10
+Downloads\PreAllocation=false
+Downloads\SavePath=/home/$username/qbittorrent/Downloads/
+Downloads\SaveResumeDataInterval=1
+General\Locale=zh
+Queueing\QueueingEnabled=false
+WebUI\Address=*
+WebUI\AlternativeUIEnabled=false
+WebUI\AuthSubnetWhitelist=0.0.0.0/0
+WebUI\AuthSubnetWhitelistEnabled=true
+
+WebUI\Password_PBKDF2="@ByteArray(lNGfzZOU4B8UP7KATdaQlg==:RMIBEdgR3S1iVg5kifFfe2ok7EMiniona0CliPeGfyVvCZMZZd00tFum0lmwQJo4RZrJ2BlBnZj+F1zKgOCNUQ==)"
+WebUI\Port=8080
+WebUI\Username=$username
+
+EOF
+
+systemctl start qbittorrent-nox@$username
 
 ## Tweaking
-#tput sgr0; clear
 normal_1; echo "Start Doing System Tweak"; warn_2
 source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/tweaking.sh)
 file_open_limit_Tweaking
-Decision kernel_Tweaking
-# Decision Tweaked_BBR
-
-normal_1; echo "Seedbox Installation Complete"
-publicip=$(curl https://ipinfo.io/ip)
-[[ ! -z "$qbport" ]] && echo "qBittorrent $version is successfully installed, visit at $publicip:$qbport"
-[[ ! -z "$deport" ]] && echo "Deluge $Deluge_Ver is successfully installed, visit at $publicip:$dewebport"
-[[ ! -z "$bbrx" ]] && echo "Tweaked BBR is successfully installed, please reboot for it to take effect"
- echo "重启后手动执行  ‘\n’ date  \n free -h \n df -h \n ls -lh /root/zerofile \n cat /sys/block/sda/queue/scheduler \n ifconfig \n su $1 && ulimit -n \n  "
+kernel_Tweaking
 
 apt-get clean
+echo "**********************INSTALL END**********************"
