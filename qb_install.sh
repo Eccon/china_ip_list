@@ -9,6 +9,7 @@ timedatectl  set-timezone  Asia/Shanghai
 
 apt-get update
 apt-get install -qqy vim vnstat unzip
+sed -i 's/RateUnit 1/RateUnit 0/' /etc/vnstat.conf && systemctl restart vnstat && systemctl restart vnstatd
 
 #ll=ls
 cat << EOF >/root/.bashrc
@@ -31,7 +32,7 @@ dd if=/dev/zero of=/var/swapfile bs=1M count=600
 chmod 0600 /var/swapfile
 mkswap /var/swapfile
 swapon /var/swapfile
-echo "/var/swapfile swap swap defaults 0 0" >>/etc/fstab
+#echo "/var/swapfile swap swap defaults 0 0" >>/etc/fstab
 
 #关闭预留5%空间
 #vda1
@@ -52,7 +53,7 @@ chmod +x ./speedtest && mv ./speedtest /usr/bin/speedtest
 rm -rf ./speedtest.* ./ookla-speedtest-1.2.0-linux-x86_64.tgz
 
 ## Load text color settings
-source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/Miscellaneous/tput.sh)
+##source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/Miscellaneous/tput.sh)
 
 ## Grabing information
 username=$1
@@ -60,10 +61,8 @@ password=$2
 socks5addr=$3
 
 ## Creating User
-warn_2
 pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
 useradd -m -p "$pass" "$username"
-normal_2
 
 ## Install qb
 wget https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/Torrent%20Clients/qBittorrent/qBittorrent/qBittorrent%204.3.9%20-%20libtorrent-v1.2.15/qbittorrent-nox && chmod +x ./qbittorrent-nox;
@@ -142,7 +141,7 @@ EOF
 systemctl start qbittorrent-nox@$username
 
 ## Tweaking
-normal_1; echo "Start Doing System Tweak"; warn_2
+## normal_1; echo "Start Doing System Tweak"; warn_2
 source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/tweaking.sh)
 file_open_limit_Tweaking
 kernel_Tweaking
