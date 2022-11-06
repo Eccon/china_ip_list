@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20221105024402
+  - DOMAIN-SUFFIX,#VER=20221106190523
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=67554
+  - DOMAIN-SUFFIX,#TOTAL_LINES=67538
   - DOMAIN-SUFFIX,000123456789.online
   - DOMAIN-SUFFIX,000123456789.site
   - DOMAIN-SUFFIX,000123456789.space
@@ -577,7 +577,6 @@ payload:
   - DOMAIN-SUFFIX,cnzz.172internet.com
   - DOMAIN-SUFFIX,1731d04ba1.com
   - DOMAIN-SUFFIX,175bar.com
-  - DOMAIN-SUFFIX,175pt.com
   - DOMAIN-SUFFIX,m.175pu.cn
   - DOMAIN-SUFFIX,m.1768.com
   - DOMAIN-SUFFIX,177o.com
@@ -4747,9 +4746,9 @@ payload:
   - DOMAIN-SUFFIX,adaog.com
   - DOMAIN-SUFFIX,m.adaog.com
   - DOMAIN-SUFFIX,adaos-ads.net
-  - DOMAIN-SUFFIX,adap.tv
   - DOMAIN-SUFFIX,segments.adap.tv
   - DOMAIN-SUFFIX,sync.adap.tv
+  - DOMAIN-SUFFIX,adap.tv
   - DOMAIN-SUFFIX,adapd.com
   - DOMAIN-SUFFIX,adapex.io
   - DOMAIN-SUFFIX,adaptationbodilypairs.com
@@ -10265,8 +10264,6 @@ payload:
   - DOMAIN-SUFFIX,smetrics.bankinter.com
   - DOMAIN-SUFFIX,stat.bankiros.ru
   - DOMAIN-SUFFIX,tracking.bankofalbuquerque.com
-  - DOMAIN-SUFFIX,dull.bankofamerica.com
-  - DOMAIN-SUFFIX,rail.bankofamerica.com
   - DOMAIN-SUFFIX,smetrics.bankofamerica.com
   - DOMAIN-SUFFIX,target.bankofamerica.com
   - DOMAIN-SUFFIX,tilt.bankofamerica.com
@@ -10735,7 +10732,6 @@ payload:
   - DOMAIN-SUFFIX,su.bdstatic.com
   - DOMAIN-SUFFIX,bdsyimg.com
   - DOMAIN-SUFFIX,bdtao.vip
-  - DOMAIN-SUFFIX,dig.bdurl.net
   - DOMAIN-SUFFIX,bdwst1.xyz
   - DOMAIN-SUFFIX,foreveryoung.gz01.bdysite.com
   - DOMAIN-SUFFIX,pic.bdyxzx.com
@@ -11144,7 +11140,6 @@ payload:
   - DOMAIN-SUFFIX,bestcoinsignals.com
   - DOMAIN-SUFFIX,bestcomadslive.com
   - DOMAIN-SUFFIX,bestcond1tions.com
-  - DOMAIN-SUFFIX,bestcontactform.com
   - DOMAIN-SUFFIX,bestcontentaccess.top
   - DOMAIN-SUFFIX,bestcontentcompany.top
   - DOMAIN-SUFFIX,bestcontentfacility.top
@@ -21928,7 +21923,6 @@ payload:
   - DOMAIN-SUFFIX,d.elong.cn
   - DOMAIN-SUFFIX,mhuodong.elong.com
   - DOMAIN-SUFFIX,elonreptiloid.com
-  - DOMAIN-SUFFIX,eloqua.com
   - DOMAIN-SUFFIX,eloquencer.com
   - DOMAIN-SUFFIX,smetrics.elpais.com
   - DOMAIN-SUFFIX,elsbfby.com
@@ -22859,7 +22853,6 @@ payload:
   - DOMAIN-SUFFIX,ex0jcjx.cn
   - DOMAIN-SUFFIX,exactag.com
   - DOMAIN-SUFFIX,exactdrive.com
-  - DOMAIN-SUFFIX,exacttarget.com
   - DOMAIN-SUFFIX,scmetrics.exacttarget.com
   - DOMAIN-SUFFIX,exaltationinsufficientintentional.com
   - DOMAIN-SUFFIX,a.exam58.com
@@ -29342,7 +29335,6 @@ payload:
   - DOMAIN-SUFFIX,hqohjvold.com
   - DOMAIN-SUFFIX,hqpass.com
   - DOMAIN-SUFFIX,hqpuoxdtbqpdygf.com
-  - DOMAIN-SUFFIX,hqq.tv
   - DOMAIN-SUFFIX,hqsjc.com
   - DOMAIN-SUFFIX,hqtlw.cn
   - DOMAIN-SUFFIX,hqtrnoqfvqao.xyz
@@ -31108,7 +31100,6 @@ payload:
   - DOMAIN-SUFFIX,insitepromotion.com
   - DOMAIN-SUFFIX,escape.insites.eu
   - DOMAIN-SUFFIX,inskinad.com
-  - DOMAIN-SUFFIX,inskinmedia.com
   - DOMAIN-SUFFIX,insnative.com
   - DOMAIN-SUFFIX,insolencemanipulative.com
   - DOMAIN-SUFFIX,s.inspectelement.co
@@ -36111,7 +36102,6 @@ payload:
   - DOMAIN-SUFFIX,liveprivates.com
   - DOMAIN-SUFFIX,livepromotools.com
   - DOMAIN-SUFFIX,udr9.livera.nl
-  - DOMAIN-SUFFIX,liverail.com
   - DOMAIN-SUFFIX,liveredwilton.com
   - DOMAIN-SUFFIX,hiuplq.livescore.in
   - DOMAIN-SUFFIX,livesegmentservice.com
@@ -39918,7 +39908,6 @@ payload:
   - DOMAIN-SUFFIX,mskjf.com
   - DOMAIN-SUFFIX,c-5uwzmx78pmca09x24aiux2euavx2ekwu.g00.msn.com
   - DOMAIN-SUFFIX,confiant.msn.com
-  - DOMAIN-SUFFIX,partner.video.syndication.msn.com
   - DOMAIN-SUFFIX,srtb.msn.com
   - DOMAIN-SUFFIX,r.msn.com
   - DOMAIN-SUFFIX,0.r.msn.com
@@ -53550,7 +53539,6 @@ payload:
   - DOMAIN-SUFFIX,analytics.stg.springboardvideo.com
   - DOMAIN-SUFFIX,push-content.springernature.io
   - DOMAIN-SUFFIX,springmetrics.com
-  - DOMAIN-SUFFIX,springserve.com
   - DOMAIN-SUFFIX,springsister.com
   - DOMAIN-SUFFIX,sprinklecontent.com
   - DOMAIN-SUFFIX,track.sprinklecontent.com
@@ -54658,7 +54646,6 @@ payload:
   - DOMAIN-SUFFIX,survey2you.org
   - DOMAIN-SUFFIX,survey4you.co
   - DOMAIN-SUFFIX,surveyedbelieves.com
-  - DOMAIN-SUFFIX,surveygizmo.com
   - DOMAIN-SUFFIX,surveyscout.com
   - DOMAIN-SUFFIX,surveywriter.com
   - DOMAIN-SUFFIX,survicate.com
@@ -57559,7 +57546,6 @@ payload:
   - DOMAIN-SUFFIX,tremorhub.com
   - DOMAIN-SUFFIX,cdna.tremormedia.com
   - DOMAIN-SUFFIX,dc.tremormedia.com
-  - DOMAIN-SUFFIX,objects.tremormedia.com
   - DOMAIN-SUFFIX,trendbuffseparation.com
   - DOMAIN-SUFFIX,trendcounter.com
   - DOMAIN-SUFFIX,trendcounter.de
@@ -62175,7 +62161,6 @@ payload:
   - DOMAIN-SUFFIX,wintoyouprizes.info
   - DOMAIN-SUFFIX,winzevrocht.com
   - DOMAIN-SUFFIX,pop.wioau.com
-  - DOMAIN-SUFFIX,wipe.de
   - DOMAIN-SUFFIX,wipedhypocrite.com
   - DOMAIN-SUFFIX,api.wipmania.com
   - DOMAIN-SUFFIX,wipowaxe.com
@@ -63361,7 +63346,6 @@ payload:
   - DOMAIN-SUFFIX,vi.xiaohongshu.com
   - DOMAIN-SUFFIX,store.xiaohongshu.com
   - DOMAIN-SUFFIX,starry.xiaohongshu.com
-  - DOMAIN-SUFFIX,apppush.xiaohongshu.com
   - DOMAIN-SUFFIX,xiaohuangshu.me
   - DOMAIN-SUFFIX,yumcs.xiaohuau.xyz
   - DOMAIN-SUFFIX,xiaohui2.cn
