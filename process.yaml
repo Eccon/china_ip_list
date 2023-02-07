@@ -1,0 +1,14 @@
+payload:
+# Linux
+  - PROCESS-NAME,google.com
+  - PROCESS-NAME, simple-obfs
+  - PROCESS-NAME, ss-local
+  - PROCESS-NAME, ssr-local
+  - PROCESS-NAME, trojan
+  - PROCESS-NAME, v2ray
+  - PROCESS-NAME, v2ray-plugin
+  - PROCESS-NAME, v2ctl
+  
+ # Android
+ 
+ # macOS
