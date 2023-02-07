@@ -1,6 +1,5 @@
 payload:
 # Linux
-  - PROCESS-NAME,google.com
   - PROCESS-NAME, simple-obfs
   - PROCESS-NAME, ss-local
   - PROCESS-NAME, ssr-local
@@ -10,5 +9,75 @@ payload:
   - PROCESS-NAME, v2ctl
   
  # Android
+  - PROCESS-NAME, com.unionpay #云闪付
+  - PROCESS-NAME, com.chinamworld.bocmbci #中国银行
+  - PROCESS-NAME, cmb.pb #招商银行
+  - PROCESS-NAME, com.chinamworld.main #建设银行
+
+  - PROCESS-NAME, com.eg.android.AlipayGphone #支付宝
+  - PROCESS-NAME, com.cainiao.wireless #菜鸟裹裹
+  - PROCESS-NAME, com.taobao.taobao #淘宝
+  - PROCESS-NAME, com.alibaba.android.rimet #钉钉
+  - PROCESS-NAME, com.autonavi.minimap #高德
+  - PROCESS-NAME, com.taobao.idlefish #咸鱼
+
+  - PROCESS-NAME, com.tencent.mm #微信
+  - PROCESS-NAME, com.tencent.weread #微信读书
+  - PROCESS-NAME, com.tencent.mobileqq #QQ
+  - PROCESS-NAME, com.tencent.tmgp.sgame #王者荣耀
+  - PROCESS-NAME, com.tencent.qqlive #腾讯视频
+  - PROCESS-NAME, com.tencent.qqmusic # QQ音乐
+
+  - PROCESS-NAME, com.qiyi.video #爱奇艺
+  - PROCESS-NAME, com.baidu.netdisk #百度网盘
+  - PROCESS-NAME, com.baidu.BaiduMap #百度地图
+
+  - PROCESS-NAME, com.xunmeng.pinduoduo #拼多多
+  - PROCESS-NAME, com.smzdm.client.android #什么值得买
+  - PROCESS-NAME, com.jingdong.app.mall #京东
+  - PROCESS-NAME, com.guodongbaohe.app #果冻宝盒
+
+  - PROCESS-NAME, com.mfashiongallery.emag #MIUI画报
+  - PROCESS-NAME, com.xiaomi.hm.health #小米运动
+  - PROCESS-NAME, com.mimoprint.xiaomi #MIUI冲印组件
+  - PROCESS-NAME, cn.wps.moffice_eng.xiaomi.lite #MIUI文档组件
+  - PROCESS-NAME, com.miui.newmidrive #MIUI云盘
+  - PROCESS-NAME, com.duokan.reader #多看阅读
+  - PROCESS-NAME, com.xiaomi.market #小米应用商店
+  - PROCESS-NAME, com.xiaomi.account #小米账号
+  - PROCESS-NAME, com.xiaomi.xmsf #小米框架
+  
+  - PROCESS-NAME, com.ss.android.ugc.aweme #抖音
+  - PROCESS-NAME, com.ss.android.article.news #头条
+  - PROCESS-NAME, com.ss.android.article.lite #头条极速版
+  - PROCESS-NAME, com.netease.newsreader.activity #网易新闻
+  - PROCESS-NAME, com.sankuai.meituan #美团
+
+  - PROCESS-NAME, com.coolapk.market #酷安
+  - PROCESS-NAME, com.netease.cloudmusic #网易云音乐
+  - PROCESS-NAME, me.ele #饿了么
+  - PROCESS-NAME, com.dianping.v1 #大众点评
+  - PROCESS-NAME, com.sina.weibo #Weibo
+  - PROCESS-NAME, com.xingin.xhs #小红书
+  - PROCESS-NAME, com.sdu.didi.psnger #滴滴
+  - PROCESS-NAME, com.zhihu.android #知乎
+  - PROCESS-NAME, com.cmcc.numberportable #和多号
+
+  - PROCESS-NAME, com.mm.android.direct.gdmssphone #大华监控
+  - PROCESS-NAME, com.seetong.app.seetong #天视通
+  - PROCESS-NAME, com.yanjiuiot.app.chelianxing #GPS
+  - PROCESS-NAME, com.eusoft.ting.en #每日英语听力
+
+  - PROCESS-NAME, cn.xuexi.android #学习强国
+  - PROCESS-NAME, com.MobileTicket #12306
+
+  - PROCESS-NAME, com.greenpoint.android.mc10086.activity #中国移动
+  - PROCESS-NAME, com.sinovatech.unicom.ui #中国联通
+
+  - PROCESS-NAME, com.iflytek.inputmethod #讯飞输入法
+  - PROCESS-NAME, com.baidu.input #百度输入法
+  - PROCESS-NAME, com.sohu.inputmethod.sogou #搜狗输入法
+  - PROCESS-NAME, com.sohu.inputmethod.sogou.xiaomi #小米搜狗输入法
+  - PROCESS-NAME, com.iflytek.inputmethod.miui #小米讯飞输入法
  
  # macOS
