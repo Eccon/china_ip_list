@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20230329023631
+  - DOMAIN-SUFFIX,#VER=20230329205617
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=67912
+  - DOMAIN-SUFFIX,#TOTAL_LINES=67942
   - DOMAIN-SUFFIX,000dn.com
   - DOMAIN-SUFFIX,kwcdn.000dn.com
   - DOMAIN-SUFFIX,kwcscdn.000dn.com
@@ -319,7 +319,6 @@ payload:
   - DOMAIN-SUFFIX,10eafd09d6.com
   - DOMAIN-SUFFIX,t.10er-tagesticket.de
   - DOMAIN-SUFFIX,10fbb07a4b0.se
-  - DOMAIN-SUFFIX,vaserviece.10jqka.com.cn
   - DOMAIN-SUFFIX,10nvejhblhha.com
   - DOMAIN-SUFFIX,discover.10play.com.au
   - DOMAIN-SUFFIX,smetrics.10play.com.au
@@ -5967,6 +5966,14 @@ payload:
   - DOMAIN-SUFFIX,adttt.com
   - DOMAIN-SUFFIX,e.aduiz.com
   - DOMAIN-SUFFIX,m.aduiz.com
+  - DOMAIN-SUFFIX,adukwai.com
+  - DOMAIN-SUFFIX,p1-jx.adukwai.com
+  - DOMAIN-SUFFIX,p1-lm.adukwai.com
+  - DOMAIN-SUFFIX,p2-jx.adukwai.com
+  - DOMAIN-SUFFIX,p2-lm.adukwai.com
+  - DOMAIN-SUFFIX,v1-lm.adukwai.com
+  - DOMAIN-SUFFIX,v2-lm.adukwai.com
+  - DOMAIN-SUFFIX,v4-lm.adukwai.com
   - DOMAIN-SUFFIX,adulatorycrappyghastly.com
   - DOMAIN-SUFFIX,adulatorydigestionmanicure.com
   - DOMAIN-SUFFIX,adult.xyz
@@ -14799,7 +14806,6 @@ payload:
   - DOMAIN-SUFFIX,chitika.net
   - DOMAIN-SUFFIX,chiuhua.com.cn
   - DOMAIN-SUFFIX,chiyan.group
-  - DOMAIN-SUFFIX,chkaja.com
   - DOMAIN-SUFFIX,chl7rysobc3ol6xla.com
   - DOMAIN-SUFFIX,chlbiz.com
   - DOMAIN-SUFFIX,chlibopi.xyz
@@ -20178,6 +20184,8 @@ payload:
   - DOMAIN-SUFFIX,dividedscientific.com
   - DOMAIN-SUFFIX,divideoutdoors.com
   - DOMAIN-SUFFIX,divolution.com
+  - DOMAIN-SUFFIX,ad-display.diwodiwo.xyz
+  - DOMAIN-SUFFIX,ad-channel.diwodiwo.xyz
   - DOMAIN-SUFFIX,diwuyu.com
   - DOMAIN-SUFFIX,ads.dixcom.com
   - DOMAIN-SUFFIX,web.news.dixiefashion.com
@@ -21134,6 +21142,24 @@ payload:
   - DOMAIN-SUFFIX,dustytownsplatitude.com
   - DOMAIN-SUFFIX,dustywave.com
   - DOMAIN-SUFFIX,dustywrenchdesigned.com
+  - DOMAIN-SUFFIX,api-c.dutils.com
+  - DOMAIN-SUFFIX,api-d.dutils.com
+  - DOMAIN-SUFFIX,api-devs.dutils.com
+  - DOMAIN-SUFFIX,api-df.dutils.com
+  - DOMAIN-SUFFIX,api-error.dutils.com
+  - DOMAIN-SUFFIX,api-exc.dutils.com
+  - DOMAIN-SUFFIX,api-fc.dutils.com
+  - DOMAIN-SUFFIX,api-fd.dutils.com
+  - DOMAIN-SUFFIX,api-gd.dutils.com
+  - DOMAIN-SUFFIX,devs-data.dutils.com
+  - DOMAIN-SUFFIX,jp-api-fc.dutils.com
+  - DOMAIN-SUFFIX,jp-devs-data.dutils.com
+  - DOMAIN-SUFFIX,m.mpl.dutils.com
+  - DOMAIN-SUFFIX,h.m.mpl.dutils.com
+  - DOMAIN-SUFFIX,us-api-d.dutils.com
+  - DOMAIN-SUFFIX,us-api-fc.dutils.com
+  - DOMAIN-SUFFIX,us-devs-data.dutils.com
+  - DOMAIN-SUFFIX,www.dutils.com
   - DOMAIN-SUFFIX,dutorterraom.com
   - DOMAIN-SUFFIX,dutravisne.com
   - DOMAIN-SUFFIX,dutuo4.top
@@ -26414,6 +26440,10 @@ payload:
   - DOMAIN-SUFFIX,giddyuptrk.com
   - DOMAIN-SUFFIX,stats-messages.gifs.com
   - DOMAIN-SUFFIX,stats.gifs.com
+  - DOMAIN-SUFFIX,gdfp.gifshow.com
+  - DOMAIN-SUFFIX,log-sdk.gifshow.com
+  - DOMAIN-SUFFIX,ad.partner.gifshow.com
+  - DOMAIN-SUFFIX,ulog-sdk.gifshow.com
   - DOMAIN-SUFFIX,secure.gift2pair.com
   - DOMAIN-SUFFIX,gift2pair.com
   - DOMAIN-SUFFIX,giftedglue.com
@@ -31871,7 +31901,6 @@ payload:
   - DOMAIN-SUFFIX,g3.iqilu.com
   - DOMAIN-SUFFIX,g4.iqilu.com
   - DOMAIN-SUFFIX,a.ckm.iqiyi.com
-  - DOMAIN-SUFFIX,act.vip.iqiyi.com
   - DOMAIN-SUFFIX,cupid.iqiyi.com
   - DOMAIN-SUFFIX,api.cupid.iqiyi.com
   - DOMAIN-SUFFIX,yuedu.iqiyi.com
@@ -33770,7 +33799,6 @@ payload:
   - DOMAIN-SUFFIX,jknarp.kakaku.com
   - DOMAIN-SUFFIX,stat-ssl.kakaku.com
   - DOMAIN-SUFFIX,kakam.info
-  - DOMAIN-SUFFIX,short-video.kakamobi.cn
   - DOMAIN-SUFFIX,smart-789.kakamobi.cn
   - DOMAIN-SUFFIX,kyson.kakao.com
   - DOMAIN-SUFFIX,stat.tiara.kakao.com
@@ -47721,7 +47749,6 @@ payload:
   - DOMAIN-SUFFIX,paopaod.qiyipic.com
   - DOMAIN-SUFFIX,qiyou.com
   - DOMAIN-SUFFIX,nim.qiyukf.com
-  - DOMAIN-SUFFIX,qiyukf.com
   - DOMAIN-SUFFIX,e.qiyunmuye.com
   - DOMAIN-SUFFIX,qizhao.com
   - DOMAIN-SUFFIX,8131.qizhihaotian.cn
@@ -48094,6 +48121,10 @@ payload:
   - DOMAIN-SUFFIX,mark.l.qq.com
   - DOMAIN-SUFFIX,rlog.video.qq.com
   - DOMAIN-SUFFIX,ad.browser.qq.com
+  - DOMAIN-SUFFIX,rdelivery.qq.com
+  - DOMAIN-SUFFIX,aedns.weixin.qq.com
+  - DOMAIN-SUFFIX,date.ab.qq.com
+  - DOMAIN-SUFFIX,report.nfa.qq.com
   - DOMAIN-SUFFIX,qq167.com
   - DOMAIN-SUFFIX,qq2ux.top
   - DOMAIN-SUFFIX,qq4g.cn
@@ -49011,7 +49042,6 @@ payload:
   - DOMAIN-SUFFIX,buttons.reddit.com
   - DOMAIN-SUFFIX,events.reddit.com
   - DOMAIN-SUFFIX,w3-reporting.reddit.com
-  - DOMAIN-SUFFIX,click.redditmail.com
   - DOMAIN-SUFFIX,events.redditmedia.com
   - DOMAIN-SUFFIX,reddsdainful.com
   - DOMAIN-SUFFIX,redeemspectacular.com
