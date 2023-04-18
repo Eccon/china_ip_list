@@ -79,5 +79,11 @@ payload:
   - PROCESS-NAME, com.sohu.inputmethod.sogou #搜狗输入法
   - PROCESS-NAME, com.sohu.inputmethod.sogou.xiaomi #小米搜狗输入法
   - PROCESS-NAME, com.iflytek.inputmethod.miui #小米讯飞输入法
- 
+ # 需要直连的域名
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
+  - DOMAIN-SUFFIX,googleapis.cn
+  - DOMAIN-SUFFIX,injections.adguard.org,DIRECT
+  - DOMAIN-SUFFIX,local.adguard.org,DIRECT
+  - DOMAIN-SUFFIX,acs.m.taobao.com,DIRECT
+
  # macOS
