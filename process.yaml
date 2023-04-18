@@ -82,8 +82,9 @@ payload:
  # 需要直连的域名
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
   - DOMAIN-SUFFIX,googleapis.cn
-  - DOMAIN-SUFFIX,injections.adguard.org,DIRECT
-  - DOMAIN-SUFFIX,local.adguard.org,DIRECT
-  - DOMAIN-SUFFIX,acs.m.taobao.com,DIRECT
+  - DOMAIN-SUFFIX,injections.adguard.org
+  - DOMAIN-SUFFIX,local.adguard.org
+  - DOMAIN-SUFFIX,acs.m.taobao.com
+  - DOMAIN-SUFFIX,devs.data.mob.com
 
  # macOS
