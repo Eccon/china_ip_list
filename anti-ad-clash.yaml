@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20230620023317
+  - DOMAIN-SUFFIX,#VER=20230621100942
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=72433
+  - DOMAIN-SUFFIX,#TOTAL_LINES=72431
   - DOMAIN-SUFFIX,000dn.com
   - DOMAIN-SUFFIX,kwcdn.000dn.com
   - DOMAIN-SUFFIX,kwcscdn.000dn.com
@@ -47977,6 +47977,7 @@ payload:
   - DOMAIN-SUFFIX,novel.pangolin-sdk-toutiao.com
   - DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao.com
   - DOMAIN-SUFFIX,pangolin-sdk-toutiao.com
+  - DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com
   - DOMAIN-SUFFIX,pangrespectfully.com
   - DOMAIN-SUFFIX,pangu.cc
   - DOMAIN-SUFFIX,pangwealjama.com
@@ -57849,7 +57850,6 @@ payload:
   - DOMAIN-SUFFIX,v.aty.sohu.com
   - DOMAIN-SUFFIX,vg.aty.sohu.com
   - DOMAIN-SUFFIX,x1.go.sohu.com
-  - DOMAIN-SUFFIX,yule.sohu.com
   - DOMAIN-SUFFIX,click.hd.sohu.com.cn
   - DOMAIN-SUFFIX,pb.hd.sohu.com.cn
   - DOMAIN-SUFFIX,sohulink.cc
@@ -63730,7 +63730,6 @@ payload:
   - DOMAIN-SUFFIX,ucweb.cn
   - DOMAIN-SUFFIX,www.ucweb.cn
   - DOMAIN-SUFFIX,px-intl.ucweb.com
-  - DOMAIN-SUFFIX,ucweb.com
   - DOMAIN-SUFFIX,adn.insight.ucweb.com
   - DOMAIN-SUFFIX,adtrack.ucweb.com
   - DOMAIN-SUFFIX,client.video.ucweb.com
@@ -67436,7 +67435,6 @@ payload:
   - DOMAIN-SUFFIX,tracking.live.wetter.at
   - DOMAIN-SUFFIX,ltsveh.wetteronline.at
   - DOMAIN-SUFFIX,ltsveh.wetteronline.de
-  - DOMAIN-SUFFIX,weworkremotely.com
   - DOMAIN-SUFFIX,mdws.weyburncu.ca
   - DOMAIN-SUFFIX,weyyae.com
   - DOMAIN-SUFFIX,wezvveogk.com
