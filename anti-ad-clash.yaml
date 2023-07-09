@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20230708023705
+  - DOMAIN-SUFFIX,#VER=20230709213542
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=75572
+  - DOMAIN-SUFFIX,#TOTAL_LINES=75571
   - DOMAIN-SUFFIX,000dn.com
   - DOMAIN-SUFFIX,kwcdn.000dn.com
   - DOMAIN-SUFFIX,kwcscdn.000dn.com
@@ -75277,7 +75277,6 @@ payload:
   - DOMAIN-SUFFIX,widget.zoorate.com
   - DOMAIN-SUFFIX,net.zooroyal.de
   - DOMAIN-SUFFIX,zooshawo.com
-  - DOMAIN-SUFFIX,zoosnet.net
   - DOMAIN-SUFFIX,zoossoft.cn
   - DOMAIN-SUFFIX,zoossoft.net
   - DOMAIN-SUFFIX,zoozistu.net
