@@ -82,6 +82,7 @@ payload:
  # 需要直连的域名
   # - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
   # - DOMAIN-SUFFIX,googleapis.cn
+  - DOMAIN-SUFFIX,zjiecode.com
   - DOMAIN-SUFFIX,gitee.io
   - DOMAIN-SUFFIX,injections.adguard.org
   - DOMAIN-SUFFIX,local.adguard.org
