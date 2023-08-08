@@ -1,8 +1,8 @@
 payload:
   - DOMAIN-SUFFIX,#TITLE=anti-AD
-  - DOMAIN-SUFFIX,#VER=20230808023252
+  - DOMAIN-SUFFIX,#VER=20230808230320
   - DOMAIN-SUFFIX,#URL=https://github.com/privacy-protection-tools/anti-AD
-  - DOMAIN-SUFFIX,#TOTAL_LINES=77382
+  - DOMAIN-SUFFIX,#TOTAL_LINES=77381
   - DOMAIN-SUFFIX,0008d6ba2e.com
   - DOMAIN-SUFFIX,000dn.com
   - DOMAIN-SUFFIX,kwcdn.000dn.com
@@ -61719,7 +61719,6 @@ payload:
   - DOMAIN-SUFFIX,image.p4p.sogou.com
   - DOMAIN-SUFFIX,img.wan.sogou.com
   - DOMAIN-SUFFIX,info.pinyin.sogou.com
-  - DOMAIN-SUFFIX,input.shouji.sogou.com
   - DOMAIN-SUFFIX,irnvf.lu.sogou.com
   - DOMAIN-SUFFIX,iwan.sogou.com
   - DOMAIN-SUFFIX,jsnp.golden1.sogou.com
