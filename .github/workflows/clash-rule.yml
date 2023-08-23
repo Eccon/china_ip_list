@@ -55,7 +55,7 @@ jobs:
         sed -i '/hostloc.com/d' accelerated-domains.china.conf
         sed -i '/apps.apple.com/d' apple.china.conf
         # Clash rule text format
-        cp accelerated-domains.china.conf apple.china.conf google.china.conf  > direct.txt 
+        cat accelerated-domains.china.conf apple.china.conf google.china.conf  > direct.txt 
         
         # Clash rule yaml format
         echo "payload:" > directbak.yaml
