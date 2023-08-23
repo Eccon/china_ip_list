@@ -68,8 +68,8 @@ jobs:
     - name: Run AdguardChinaList
       run: |
         cat chinadomain.txt > adguardtmp.txt
-        ## cat appletmp.txt >> adguardtmp.txt
-        ## cat googletmp.txt >> adguardtmp.txt
+        cat appletmp.txt >> adguardtmp.txt
+        cat googletmp.txt >> adguardtmp.txt
         cat adguardtmp.txt | tr "\n" "/" | sed -e 's|^|/|' -e 's|\(.*\)|[\1]192.168.1.22|' > accelerated-domains.china.adguardhome.conf
         echo "" >> accelerated-domains.china.adguardhome.conf
         echo "https://1.1.1.1/dns-query" >> accelerated-domains.china.adguardhome.conf
