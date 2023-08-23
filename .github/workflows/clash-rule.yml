@@ -16,9 +16,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       
-    - name: Run BanAD rule
+    - name: Run BanAD rules
       run: | 
-        curl -s https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt | sed '/#/d' > anti-ad-clash.txt
+        curl -s https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt | sed -e '/#/d' -e 's/^/+./' > reject.txt
+        curl -s https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt | sed 's/^/+./' >> reject.txt
+        sort -u reject.txt -o reject.txt
 
     - name: Run ip rules
       run: |
