@@ -1,8 +1,8 @@
-name: anti-ad-clash
+name: Rules
 
 on:
   schedule:
-    - cron: 0 23 * * *
+    - cron: 0 16 * * *
   push:
     branches: [ master ]
   pull_request:
@@ -15,45 +15,28 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+      
+    - name: Run BanAD rule
+      run: | 
+        curl -s https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt | sed '/#/d' > anti-ad-clash.txt
 
-
-    - name: Run anti-AD
+    - name: Run ip rules
       run: |
-        wget https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt
-        echo "payload:" > anti-ad-clash.yaml
-        for domain in $(cat ./anti-ad-domains.txt);do
-          echo "  - DOMAIN-SUFFIX,$domain" >> anti-ad-clash.yaml
-        done
-        rm -rf ./anti-ad-domains.txt
-
-    - name: Run ClashChinaList
-      run: |
-        wget https://raw.githubusercontent.com/tmplink/IPDB/main/ipv4/cidr/CN.txt
+        curl -s https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt | sed "/#/d" > chnroutes.txt
+        curl -s https://raw.githubusercontent.com/tmplink/IPDB/main/ipv4/cidr/CN.txt > CN.txt
+        curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt | tail +2 > lancidr.txt
+        # text format
+        cat chnroutes.txt CN.txt | sort -u > cnip.txt 
+        cat lancidr.txt | sed  -e "s/^  - '//" -e  "s/'//" >> cnip.txt
+        # yaml format
+        echo "payload:" > CNIP.yaml 
+        cat chnroutes.txt CN.txt | sort -u | sed -e "s/^/  - '/" -e "s/$/'/"  >> CNIP.yaml
+        cat lancidr.txt  >> CNIP.yaml
+        # Old file
         echo "payload:" > ./Clash-CNIP.yaml
-        sed  "s/^/  - '&/g"  ./CN.txt >> ./Clash-CNIP-tmp.yaml
-        sed  "s/$/'&/g" ./Clash-CNIP-tmp.yaml >> ./Clash-CNIP.yaml
-        
-        wget https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf
-        wget https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf
-        wget https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf
-        cat ./accelerated-domains.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > chinadomain.txt
-        sed -i '/hostloc.com/d' chinadomain.txt
-        echo "payload:" > directbak.yaml
-        cat chinadomain.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> directbak.yaml           
-        
-        cat ./apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > appletmp.txt
-        sed -i '/apps.apple.com/d' appletmp.txt
-        echo "payload:" > AppleCN.yaml
-        cat appletmp.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> AppleCN.yaml           
-
-        cat ./google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > googletmp.txt
-        echo "payload:" > GoogleCN.yaml
-        cat googletmp.txt| grep -Ev "^(regexp|keyword|full):" | perl -ne '/^(domain:)?([-_a-zA-Z0-9]+(\.[-_a-zA-Z0-9]+)*)/ && print "  - |+.$2|\n"' | sed "s/|/'/g" >> GoogleCN.yaml           
-        
-        URL="https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt" && curl -s $URL | head -2  >  ./CNIP.yaml && echo "payload:" >> ./CNIP.yaml && curl -s $URL | tail +3 | while read line
-        do
-        echo "  - '$line'" >> ./CNIP.yaml
-        done
+        sed  -e "s/^/  - '&/g" -e "s/$/'&/g" CN.txt >> Clash-CNIP.yaml
+        # Delete tmp file
+        rm -rf chnroutes.txt CN.txt lancidr.txt
         
         # GoogleIP
         echo "payload:" > ./GoogleIP.yaml
@@ -61,33 +44,40 @@ jobs:
         curl -s https://www.gstatic.com/ipranges/cloud.json | jq --raw-output '.prefixes[] | select(.ipv4Prefix != null ) | .ipv4Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
         curl -s https://www.gstatic.com/ipranges/goog.json | jq --raw-output '.prefixes[] | select(.ipv6Prefix != null ) | .ipv6Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
         curl -s https://www.gstatic.com/ipranges/cloud.json | jq --raw-output '.prefixes[] | select(.ipv6Prefix != null ) | .ipv6Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
-        
-        
-        
-        
-    - name: Run AdguardChinaList
+      
+    - name: Run domain rules
       run: |
-        cat chinadomain.txt > adguardtmp.txt
-        cat appletmp.txt >> adguardtmp.txt
-        cat googletmp.txt >> adguardtmp.txt
-        cat adguardtmp.txt | tr "\n" "/" | sed -e 's|^|/|' -e 's|\(.*\)|[\1]192.168.1.22|' > accelerated-domains.china.adguardhome.conf
+        curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > accelerated-domains.china.conf
+        curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > apple.china.conf
+        curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > google.china.conf
+        sed -i '/hostloc.com/d' accelerated-domains.china.conf
+        sed -i '/apps.apple.com/d' apple.china.conf
+        # Clash rule text format
+        cp accelerated-domains.china.conf direct.txt 
+        cp apple.china.conf  AppleCN.txt
+        cp google.china.conf GoogleCN.txt
+
+        # Clash rule yaml format
+        echo "payload:" > directbak.yaml
+        cat accelerated-domains.china.conf | sed -e "s/^/  - '+./" -e "s/$/'/"  >> directbak.yaml
+
+        echo "payload:" > AppleCN.yaml
+        cat apple.china.conf | sed -e "s/^/  - '+./" -e "s/$/'/"  >>   AppleCN.yaml 
+
+        echo "payload:" > GoogleCN.yaml
+        cat ./google.china.conf | sed -e "s/^/  - '+./" -e "s/$/'/"  >> GoogleCN.yaml
+
+        # Adguard rule
+        cat accelerated-domains.china.conf apple.china.conf google.china.conf | tr "\n" "/" | sed -e 's|^|/|' -e 's|\(.*\)|[\1]192.168.1.22|' > accelerated-domains.china.adguardhome.conf
         echo "" >> accelerated-domains.china.adguardhome.conf
         echo "https://1.1.1.1/dns-query" >> accelerated-domains.china.adguardhome.conf
         #echo "https://8.8.8.8/dns-query" >> accelerated-domains.china.adguardhome.conf
         echo "https://208.67.222.222/dns-query" >> accelerated-domains.china.adguardhome.conf
-
-        
-    - name: Run Remove tmpfile
-      run: |
+      
         rm -rf google.china.conf
         rm -rf apple.china.conf
         rm -rf accelerated-domains.china.conf
-        rm -rf ./appletmp.txt
-        rm -rf ./chinadomain.txt
-        rm -rf ./googletmp.txt
-        rm -rf ./adguardtmp.txt
-        rm -rf ./CN.txt
-        rm -rf ./Clash-CNIP-tmp.yaml
+        
     - name: Run Push
       run: |
         git config --global user.email "18576718+Eccon@users.noreply.github.com"
