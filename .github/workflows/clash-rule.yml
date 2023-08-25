@@ -15,6 +15,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+   
+    - name: Run White rules
+      run: | 
+        awk '/payload/, /#end/' process.yaml > tmpfile && mv tmpfile process.yaml
+        curl -sL https://raw.githubusercontent.com/privacy-protection-tools/dead-horse/master/anti-ad-white-list.txt | sort -u | sed 's/^/  - DOMAIN-SUFFIX, /'  >> process.yaml
       
     - name: Run BanAD rules
       run: | 
@@ -80,8 +85,8 @@ jobs:
         
     - name: Run Push
       run: |
-        git config --global user.email "18576718+Eccon@users.noreply.github.com"
-        git config --global user.name "Eccon"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
         git add .
         git commit -m "Update Rule"
         git push -f 
