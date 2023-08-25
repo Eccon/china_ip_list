@@ -75,7 +75,7 @@ jobs:
         # Adguard rule
         cat accelerated-domains.china.conf apple.china.conf google.china.conf | tr "\n" "/" | sed -e 's|^|/|' -e 's|\(.*\)|[\1]192.168.1.22|' > accelerated-domains.china.adguardhome.conf
         echo "" >> accelerated-domains.china.adguardhome.conf
-        echo "https://1.1.1.1/dns-query" >> accelerated-domains.china.adguardhome.conf
+        echo "h3://1.1.1.1/dns-query" >> accelerated-domains.china.adguardhome.conf
         #echo "https://8.8.8.8/dns-query" >> accelerated-domains.china.adguardhome.conf
         echo "https://208.67.222.222/dns-query" >> accelerated-domains.china.adguardhome.conf
       
