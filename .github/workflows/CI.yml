@@ -27,5 +27,4 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git add .
         git commit -m "Update rsc file"
-        git push --force 
-
+        git push -f
