@@ -13,6 +13,7 @@ payload:
   - PROCESS-NAME, com.chinamworld.bocmbci #中国银行
   - PROCESS-NAME, cmb.pb #招商银行
   - PROCESS-NAME, com.chinamworld.main #建设银行
+  - PROCESS-NAME, com.cib.cibmb #兴业银行
 
   - PROCESS-NAME, com.eg.android.AlipayGphone #支付宝
   - PROCESS-NAME, com.cainiao.wireless #菜鸟裹裹
