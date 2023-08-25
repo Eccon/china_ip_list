@@ -23,8 +23,8 @@ jobs:
         chmod +x ./shell.sh
         ./shell.sh > china_ip_list.rsc
         rm -rf china_ip_list.txt
-        git config --global user.email "18576718+Eccon@users.noreply.github.com"
-        git config --global user.name "Eccon"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
         git add .
         git commit -m "Update rsc file"
         git push --force 
