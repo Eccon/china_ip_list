@@ -58,10 +58,12 @@ jobs:
         curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > accelerated-domains.china.conf
         curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > apple.china.conf
         curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > google.china.conf
+        
         sed -i '/hostloc.com/d' accelerated-domains.china.conf
         sed -i '/apps.apple.com/d' apple.china.conf
         # Clash rule text format
         cat accelerated-domains.china.conf apple.china.conf google.china.conf  | sed -e "s/^/'+./"  -e "s/$/'/" > direct.txt 
+        curl -sSL https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt| sed -e '/payload:/d' -e "s/  - //" >> direct.txt
         
         # Clash rule yaml format
         echo "payload:" > directbak.yaml
