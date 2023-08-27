@@ -62,7 +62,7 @@ jobs:
         sed -i '/hostloc.com/d' accelerated-domains.china.conf
         sed -i '/apps.apple.com/d' apple.china.conf
         # Clash rule text format
-        cat accelerated-domains.china.conf apple.china.conf google.china.conf  | sed -e "s/^/+./"  > direct.txt 
+        cat accelerated-domains.china.conf apple.china.conf google.china.conf  | sed -e "s/^/+./"  -e /^\+\.top$/d > direct.txt 
         curl -sSL https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt| sed -e '/payload:/d' -e "s/  - '//" -e "s/'//" >> direct.txt
         
         # Clash rule yaml format
