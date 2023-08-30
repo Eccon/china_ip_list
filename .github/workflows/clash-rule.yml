@@ -20,7 +20,7 @@ jobs:
       run: | 
         curl -s https://ruleset.skk.moe/List/domainset/reject.conf | sed -e '/#/d' -e 's/^\.//'  > sukka-reject.txt
         curl -s https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt > loyal-reject.txt
-        # curl -s https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt | sed -e '/#/d' > anti-reject.txt
+        curl -s https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt | sed -e '/#/d' > anti-reject.txt
         cat *-reject.txt | sort -u | sed 's/^/+./' > reject.txt
         sed -i "1i # $(echo Total: $(wc -l <reject.txt) lines\; Last Updated: $(date) )" reject.txt
         rm -rf *-reject.txt
