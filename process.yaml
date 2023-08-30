@@ -99,7 +99,7 @@ payload:
   - DOMAIN-SUFFIX, app.chat.xiaomi.net #Mipush
   - DOMAIN-SUFFIX, xmpush.xiaomi.com
   - DOMAIN-SUFFIX, image.box.xiaomi.com
-  - DOMAIN-SUFFIX, pdc.micloud.xiaomi.net
+  - DOMAIN-SUFFIX, micloud.xiaomi.net #miui cloud sync
   - DOMAIN-SUFFIX, resolver.msg.xiaomi.net
   - DOMAIN-SUFFIX, ssl-cdn.static.browser.mi-img.com
   - DOMAIN-SUFFIX, wtradv.market.xiaomi.com #miui weather
