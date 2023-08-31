@@ -1,5 +1,5 @@
 payload:
-# Linux
+  # Linux
   - PROCESS-NAME, simple-obfs
   - PROCESS-NAME, ss-local
   - PROCESS-NAME, ssr-local
@@ -8,7 +8,7 @@ payload:
   - PROCESS-NAME, v2ray-plugin
   - PROCESS-NAME, v2ctl
   
- # Android
+  # Android
   - PROCESS-NAME, com.unionpay #云闪付
   - PROCESS-NAME, com.chinamworld.bocmbci #中国银行
   - PROCESS-NAME, cmb.pb #招商银行
@@ -81,12 +81,15 @@ payload:
   - PROCESS-NAME, com.sohu.inputmethod.sogou #搜狗输入法
   - PROCESS-NAME, com.sohu.inputmethod.sogou.xiaomi #小米搜狗输入法
   - PROCESS-NAME, com.iflytek.inputmethod.miui #小米讯飞输入法
- # 需要直连的域名
-  - DOMAIN-SUFFIX, googleapis.cn
-  - DOMAIN-SUFFIX, xn--ngstr-lra8j.com
-  - DOMAIN-SUFFIX, xn--ngstr-cn-8za9o.com
-  - DOMAIN-SUFFIX, gvt2.com
-  - DOMAIN-SUFFIX, vxtrans.com
+  
+  # macOS
+ 
+  # Domain rules
+  - DOMAIN-SUFFIX, googleapis.cn #Play store
+  - DOMAIN-SUFFIX, xn--ngstr-lra8j.com #Play store download
+  - DOMAIN-SUFFIX, xn--ngstr-cn-8za9o.com #Play store download
+  # - DOMAIN-SUFFIX, gvt2.com #remove: this may be a junk domain(reject)
+  # Taobao
   - DOMAIN-SUFFIX, acs.m.taobao.com
   - DOMAIN-SUFFIX, amdc.m.taobao.com
   - DOMAIN-SUFFIX, accscdn.m.taobao.com
@@ -114,6 +117,3 @@ payload:
   - DOMAIN-SUFFIX, metrics.icloud.com
   - DOMAIN-SUFFIX, stat.10jqka.com.cn
   - DOMAIN-SUFFIX, widget.weibo.com
-
- # macOS
-
