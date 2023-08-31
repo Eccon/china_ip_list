@@ -89,6 +89,7 @@ payload:
   - DOMAIN-SUFFIX, xn--ngstr-lra8j.com #Play store download
   - DOMAIN-SUFFIX, xn--ngstr-cn-8za9o.com #Play store download
   # - DOMAIN-SUFFIX, gvt2.com #remove: this may be a junk domain(reject)
+  
   # Taobao
   - DOMAIN-SUFFIX, acs.m.taobao.com
   - DOMAIN-SUFFIX, amdc.m.taobao.com
@@ -117,3 +118,4 @@ payload:
   - DOMAIN-SUFFIX, metrics.icloud.com
   - DOMAIN-SUFFIX, stat.10jqka.com.cn
   - DOMAIN-SUFFIX, widget.weibo.com
+  - DOMAIN-SUFFIX, vxtrans.com
