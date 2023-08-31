@@ -25,22 +25,18 @@ jobs:
         sed -i "1i # $(echo Total: $(wc -l <reject.txt) lines\; Last Updated: $(date) )" reject.txt
         rm -rf *-reject.txt
 
-    - name: Run ip rules
+    - name: Run cnip rules
       run: |
         curl -s https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt | sed "/#/d" > chnroutes.txt
         curl -s https://raw.githubusercontent.com/tmplink/IPDB/main/ipv4/cidr/CN.txt > CN.txt
-        curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt | tail +2 > lancidr.txt
+        curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt | sed   -e '/payload/d' -e "s/^  - '//" -e  "s/'//" > lancidr.txt
         # text format
         cat chnroutes.txt CN.txt | sort -u > cnip.txt 
-        cat lancidr.txt | sed  -e "s/^  - '//" -e  "s/'//" >> cnip.txt
+        cat lancidr.txt  >> cnip.txt
 
         # yaml format
-        echo "payload:" > CNIP.yaml 
-        cat chnroutes.txt CN.txt | sort -u | sed -e "s/^/  - '/" -e "s/$/'/"  >> CNIP.yaml
-        cat lancidr.txt  >> CNIP.yaml
-        # Old file
-        echo "payload:" > ./Clash-CNIP.yaml
-        sed  -e "s/^/  - '&/g" -e "s/$/'&/g" CN.txt >> Clash-CNIP.yaml
+        sed -e "s/^/  - \'/" -e "s/$/\'/" -e "1i payload:" cnip.txt > CNIP.yaml
+
         # Delete tmp file
         rm -rf chnroutes.txt CN.txt lancidr.txt
         
@@ -50,28 +46,20 @@ jobs:
         curl -s https://www.gstatic.com/ipranges/cloud.json | jq --raw-output '.prefixes[] | select(.ipv4Prefix != null ) | .ipv4Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
         curl -s https://www.gstatic.com/ipranges/goog.json | jq --raw-output '.prefixes[] | select(.ipv6Prefix != null ) | .ipv6Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
         curl -s https://www.gstatic.com/ipranges/cloud.json | jq --raw-output '.prefixes[] | select(.ipv6Prefix != null ) | .ipv6Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
-      
-    - name: Run domain rules
+    
+    - name: Run proxy rules
+      run: |
+        curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt | sed   -e '/payload/d' -e "s/^  - '//" -e  "s/'//" > proxy.txt
+        curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/category-porn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' >> proxy.txt
+        sort -u proxy.txt -o proxy.txt 
+
+    - name: Run CN domain rules
       run: |
         curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > accelerated-domains.china.conf
         curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > apple.china.conf
         curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > google.china.conf
-        
-        sed -i '/hostloc.com/d' accelerated-domains.china.conf
+      
         sed -i '/apps.apple.com/d' apple.china.conf
-        # Clash rule text format
-        cat accelerated-domains.china.conf apple.china.conf google.china.conf  | sed -e "s/^/+./"  -e /^\+\.top$/d > direct.txt 
-        curl -sSL https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt| sed -e '/payload:/d' -e "s/  - '//" -e "s/'//" >> direct.txt
-        
-        # Clash rule yaml format
-        echo "payload:" > directbak.yaml
-        cat accelerated-domains.china.conf | sed -e "s/^/  - '+./" -e "s/$/'/"  >> directbak.yaml
-
-        echo "payload:" > AppleCN.yaml
-        cat apple.china.conf | sed -e "s/^/  - '+./" -e "s/$/'/"  >>   AppleCN.yaml 
-
-        echo "payload:" > GoogleCN.yaml
-        cat ./google.china.conf | sed -e "s/^/  - '+./" -e "s/$/'/"  >> GoogleCN.yaml
 
         # Adguard rule
         cat accelerated-domains.china.conf apple.china.conf google.china.conf | tr "\n" "/" | sed -e 's|^|/|' -e 's|\(.*\)|[\1]192.168.1.22|' > accelerated-domains.china.adguardhome.conf
@@ -79,7 +67,15 @@ jobs:
         echo "h3://1.1.1.1/dns-query" >> accelerated-domains.china.adguardhome.conf
         #echo "https://8.8.8.8/dns-query" >> accelerated-domains.china.adguardhome.conf
         echo "https://208.67.222.222/dns-query" >> accelerated-domains.china.adguardhome.conf
-      
+
+        # Clash rule text format
+        # cat accelerated-domains.china.conf apple.china.conf google.china.conf  | sed -e "s/^/+./"  -e /^\+\.top$/d > direct.txt 
+        curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/geolocation-cn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' > direct.txt 
+        #(include microsoft@cn apple@cn google@cn and etc)
+        curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/geolocation-%21cn@cn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' >> direct.txt 
+        curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt| sed -e '/payload:/d' -e "s/^  - '//" -e "s/'$//" >> direct.txt
+        sort -u direct.txt -o direct.txt
+
         rm -rf google.china.conf
         rm -rf apple.china.conf
         rm -rf accelerated-domains.china.conf
