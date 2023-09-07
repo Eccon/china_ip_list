@@ -70,9 +70,9 @@ jobs:
 
         # Clash rule text format
         # cat accelerated-domains.china.conf apple.china.conf google.china.conf  | sed -e "s/^/+./"  -e /^\+\.top$/d > direct.txt 
-        curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/geolocation-cn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' > direct.txt 
         #(include microsoft@cn apple@cn google@cn and etc)
-        curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/geolocation-%21cn@cn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' >> direct.txt 
+        curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/geolocation-%21cn@cn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' > direct.txt 
+        # curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/geolocation-cn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' >> direct.txt 
         curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt| sed -e '/payload:/d' -e "s/^  - '//" -e "s/'$//" >> direct.txt
         sort -u direct.txt -o direct.txt
 
