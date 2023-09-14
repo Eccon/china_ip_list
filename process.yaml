@@ -108,6 +108,7 @@ payload:
   - DOMAIN-SUFFIX, resolver.msg.xiaomi.net
   - DOMAIN-SUFFIX, ssl-cdn.static.browser.mi-img.com
   - DOMAIN-SUFFIX, wtradv.market.xiaomi.com #miui weather
+  - DOMAIN-SUFFIX, api.comm.miui.com #电话陌生号码识别
 
   - DOMAIN-SUFFIX, gia.jd.com #京东滑动验证码
   - DOMAIN-SUFFIX, orbit.jd.com #京东跳转
