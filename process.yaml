@@ -98,6 +98,7 @@ payload:
   - DOMAIN-SUFFIX, retcode.taobao.com
   - DOMAIN-SUFFIX, eco.taobao.com
   - DOMAIN-SUFFIX, click.simba.taobao.com # 淘宝 PC 端搜索页直通车商品
+  - DOMAIN-SUFFIX, amos.alicdn.com #图片加载
   # - DOMAIN-SUFFIX, devs.data.mob.com
 
   - DOMAIN-SUFFIX, api.sec.miui.com #miui自带骚扰拦截相关
