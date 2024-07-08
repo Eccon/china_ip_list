@@ -124,11 +124,13 @@
 +.cnappinstall.googleadapis.com
 +.connectivitycheck.gstatic.com
 +.content.googleadapis.com
++.cp.cloudflare.com
 +.crashlyticsreports-pa.googleapis.com
 +.crl.pki.goog
 +.csi.gstatic.com
 +.d.f.ip6.arpa
 +.dartsearch-cn.net
++.detectportal.firefox.com
 +.dg-meta.video.google.com
 +.distribution.qatp1.net
 +.distribution.qcpp1.net
@@ -216,6 +218,7 @@
 +.peiluyou.com
 +.performanceparameters.googleapis.com
 +.phicomm.me
++.ping.archlinux.org
 +.pki-goog.l.google.com
 +.play.1ucrs.com
 +.plex.direct
@@ -223,6 +226,7 @@
 +.prod-databe.floonet.goog
 +.prod.databe.floonet.goog
 +.proxyconfig.corp.google.com
++.push.services.mozilla.com
 +.qagpublic.qatp1.net
 +.qagpublic.qcpp1.net
 +.qagpublic.qpdp1.net
@@ -313,10 +317,10 @@
 +.xn--flw351e.com
 +.zte.home
 asusrouter.com
-cp.cloudflare.com
-detectportal.firefox.com
+connect.rom.miui.com
 instant.arubanetworks.com
 miwifi.com
+oasisauth.h3c.com
 router.asus.com
 routerlogin.com
 setmeup.arubanetworks.com
