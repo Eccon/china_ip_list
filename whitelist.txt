@@ -1,0 +1,46 @@
+#直连域名以及广告规则误伤域名
+
++.cn
++.com.cn
+
++.googleapis.cn #Play store
++.xn--ngstr-lra8j.com #Play store download
++.xn--ngstr-cn-8za9o.com #Play store download
+  
+# Taobao
++.acs.m.taobao.com
++.amdc.m.taobao.com
++.accscdn.m.taobao.com
++.adashx.m.taobao.com
++.retcode.taobao.com
++.eco.taobao.com
++.click.simba.taobao.com # 淘宝 PC 端搜索页直通车商品
++.amos.alicdn.com #图片加载
++.devs.data.mob.com
++.d-gm.mmstat.com
++.d-gm.mmstat.com
+
++.api.sec.miui.com #miui自带骚扰拦截相关
++.app.chat.xiaomi.net #Mipush
++.xmpush.xiaomi.com
++.image.box.xiaomi.com
++.micloud.xiaomi.net #miui cloud sync
++.resolver.msg.xiaomi.net
++.ssl-cdn.static.browser.mi-img.com
++.wtradv.market.xiaomi.com #miui weather
++.api.comm.miui.com #电话陌生号码识别
++.a0.app.xiaomi.com
+
++.gia.jd.com #京东滑动验证码
++.orbit.jd.com #京东跳转
++.kepler.jd.com #京东跳转
++.wl.jd.com #京东PC
+
++.data.bilibili.com
++.l.qq.com #QQ mail
++.metrics.icloud.com
++.stat.10jqka.com.cn
++.widget.weibo.com
++.vxtrans.com #转发规则
+
+
