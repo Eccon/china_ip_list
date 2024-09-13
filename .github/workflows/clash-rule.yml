@@ -30,8 +30,12 @@ jobs:
         curl -s https://raw.githubusercontent.com/tmplink/IPDB/main/ipv4/cidr/CN.txt > cnip.txt 
         curl -s https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt | sed "/#/d" >> cnip.txt
         curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt | sed   -e '/payload/d' -e "s/^  - '//" -e  "s/'//" >> cnip.txt
+        #ipv6
+        curl -s https://raw.githubusercontent.com/gaoyifan/china-operator-ip/ip-lists/china6.txt  >> cnip.txt
+        curl -s https://raw.githubusercontent.com/tmplink/IPDB/main/ipv6/cidr/CN.txt  >> cnip.txt
         # text format: cnip.txt
-
+        sort -u cnip.txt -o cnip.txt
+      
         # yaml format
         sed -e "s/^/  - \'/" -e "s/$/\'/" -e "1i payload:" cnip.txt > CNIP.yaml
         
