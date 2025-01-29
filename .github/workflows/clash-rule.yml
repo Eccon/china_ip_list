@@ -15,7 +15,16 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
+      
+    - name: Run Streaming Rules for sing-box 
+      run: |
+        wget -qO- https://github.com/SagerNet/sing-box/releases/download/v${VER}/sing-box-${VER}-linux-amd64.tar.gz \
+          | tar xvz --strip-components=1 -C /usr/local/bin sing-box-${VER}-linux-amd64/sing-box
+        curl -s https://raw.githubusercontent.com/1-stream/1stream-public-utils/refs/heads/main/stream.list \
+          | sed -n '/^~/s/^.//p' | jq -Rs 'split(";\r\n")|{"version":1,"rules":[{"domain_regex":map(select(.!=""))}]}' > tmp-stream.json
+        sing-box rule-set compile --output streaming.srs tmp-stream.json && rm -rf tmp-stream.json
+      env:
+        VER: 1.10.7
     - name: Run BanAD rules
       run: | 
         curl -s https://ruleset.skk.moe/List/domainset/reject.conf | sed -e '/#/d' -e 's/^\.//' -e '/\.$/d' > sukka-reject.txt
