@@ -52,6 +52,7 @@ jobs:
         cat custom/proxy.txt | sed -e '/^#/d' -e '/^\s*$/d' -e 's/^/+./' >> proxy.txt 
         sort -u proxy.txt -o proxy.txt 
         sed -i "1i # $(echo Total: $(wc -l <proxy.txt) lines\; Last Updated: $(date) )" proxy.txt
+        cat custom/proxy.txt | sed -e '/^#/d' -e '/^\s*$/d' -e 's/^/+./'
         
     - name: Run direct rules
       run: |
