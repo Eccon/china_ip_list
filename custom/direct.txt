@@ -1,0 +1,61 @@
+#需要直连的域名，已经一些广告规则误杀的域名
+  
+# Play store 
+googleapis.cn 
+xn--ngstr-lra8j.com
+xn--ngstr-cn-8za9o.com
+
+#Wechat
+gtimg.com
+idqqimg.com
+iot-tencent.com
+qlogo.cn
+qpic.cn
+qq.com
+servicewechat.com
+tenpay.com
+wechat.com
+wechatos.net
+weixin.com
+  
+# 淘宝广告误杀
+acs.m.taobao.com
+amdc.m.taobao.com
+accscdn.m.taobao.com
+adashx.m.taobao.com
+retcode.taobao.com
+eco.taobao.com
+click.simba.taobao.com
+amos.alicdn.com
+devs.data.mob.com
+d-gm.mmstat.com
+d-gm.mmstat.com
+
+# 小米广告误杀 Mipush 来电标记 云服务等
+api.sec.miui.com
+app.chat.xiaomi.net
+xmpush.xiaomi.com
+image.box.xiaomi.com
+micloud.xiaomi.net
+resolver.msg.xiaomi.net
+ssl-cdn.static.browser.mi-img.com
+wtradv.market.xiaomi.com
+api.comm.miui.com
+a0.app.xiaomi.com
+
+# 京东广告误杀
+gia.jd.com
+orbit.jd.com
+kepler.jd.com
+wl.jd.com
+
+# Apple icloud 误杀
+metrics.icloud.com
+# Adguard
+local.adguard.org
+injections.adguard.org
+
+# SSH 直连域名
+hkbn.001188.xyz
+
+
