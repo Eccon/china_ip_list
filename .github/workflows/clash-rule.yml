@@ -25,16 +25,42 @@ jobs:
         sing-box rule-set compile --output streaming.srs tmp-stream.json && rm -rf tmp-stream.json
       env:
         VER: 1.10.7
+        
     - name: Run BanAD rules
       run: | 
         curl -s https://ruleset.skk.moe/List/domainset/reject.conf | sed -e '/#/d' -e 's/^\.//' -e '/\.$/d' > sukka-reject.txt
         curl -s https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt > loyal-reject.txt
         curl -s https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt | sed -e '/#/d' > anti-reject.txt
-        cat *-reject.txt custom/reject.txt | sort -u | sed -e '/^$/d' -e 's/^/+./' > reject.txt
+        # HTTPDNS
+        # curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-httpdns-cn.list  > httpdns-reject.txt
+        cat custom/reject.txt | sed -e '/^#/d' -e '/^\s*$/d' > custom-reject.txt
+        cat *-reject.txt | sort -u | sed -e '/^$/d' -e 's/^/+./' > reject.txt
         sed -i "1i # $(echo Total: $(wc -l <reject.txt) lines\; Last Updated: $(date) )" reject.txt
         rm -rf *-reject.txt
+        
+    - name: Run proxy rules
+      run: |
+        curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt | sed   -e '/payload/d' -e "s/^  - '//" -e  "s/'//" > proxy.txt
+        # Porn List
+        curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-porn.list >> proxy.txt
+        # curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/category-porn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' >> proxy.txt
+        # Lark Global
+        curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/lark-global.list  >> proxy.txt
+        #tld-!cn
+        curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tld-!cn.list  >> proxy.txt
+        # curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/lark.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' >> proxy.txt
+        cat custom/reject.txt | sed -e '/^#/d' -e '/^\s*$/d' -e 's/^/+./' >> proxy.txt 
+        sort -u proxy.txt -o proxy.txt 
+        sed -i "1i # $(echo Total: $(wc -l <proxy.txt) lines\; Last Updated: $(date) )" proxy.txt
+        
+    - name: Run direct rules
+      run: |
+         curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.list >> direct.txt
+         curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-cn.list  >> direct.txt
+         cat custom/direct.txt | sed -e '/^#/d' -e '/^\s*$/d' -e 's/^/+./' >> direct.txt 
+         sed -i "1i # $(echo Total: $(wc -l <direct.txt) lines\; Last Updated: $(date) )" direct.txt
 
-    - name: Run cnip rules
+    - name: Run CN-IP rules
       run: |
         curl -s https://raw.githubusercontent.com/tmplink/IPDB/main/ipv4/cidr/CN.txt > cnip.txt 
         curl -s https://raw.githubusercontent.com/misakaio/chnroutes2/master/chnroutes.txt | sed "/#/d" >> cnip.txt
@@ -55,14 +81,7 @@ jobs:
         curl -s https://www.gstatic.com/ipranges/goog.json | jq --raw-output '.prefixes[] | select(.ipv6Prefix != null ) | .ipv6Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
         curl -s https://www.gstatic.com/ipranges/cloud.json | jq --raw-output '.prefixes[] | select(.ipv6Prefix != null ) | .ipv6Prefix' | while read line; do echo "  - '$line'" >> ./GoogleIP.yaml; done
     
-    - name: Run proxy rules
-      run: |
-        curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt | sed   -e '/payload/d' -e "s/^  - '//" -e  "s/'//" > proxy.txt
-        # curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/category-porn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' >> proxy.txt
-        # curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/lark.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' >> proxy.txt
-        sort -u proxy.txt -o proxy.txt 
-
-    - name: Run CN domain rules
+    - name: Run Adguard Home DNS Rules
       run: |
         curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > accelerated-domains.china.conf
         curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf | perl -ne '/^server=\/([^\/]+)\// && print "$1\n"' > apple.china.conf
@@ -82,9 +101,9 @@ jobs:
         #(include microsoft@cn apple@cn google@cn and etc)
         # curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/geolocation-%21cn@cn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' > direct.txt 
         # curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/geolocation-cn.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' >> direct.txt 
-        curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt | sed -e '/payload:/d' -e "s/^  - '//" -e "s/'$//" > direct.txt 
-        curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt| sed -e '/payload:/d' -e "s/^  - '//" -e "s/'$//" >> direct.txt
-        sort -u direct.txt -o direct.txt
+        # curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt | sed -e '/payload:/d' -e "s/^  - '//" -e "s/'$//" > direct.txt 
+        # curl -s https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt| sed -e '/payload:/d' -e "s/^  - '//" -e "s/'$//" >> direct.txt
+        # sort -u direct.txt -o direct.txt
 
         rm -rf google.china.conf
         rm -rf apple.china.conf
