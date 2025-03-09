@@ -56,7 +56,7 @@ jobs:
     - name: Run direct rules
       run: |
          curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.list > direct.txt
-         curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-cn.list  >> direct.txt
+         # curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-cn.list  >> direct.txt
          echo "" >> direct.txt && cat custom/direct.txt | sed -e '/^#/d' -e '/^\s*$/d' -e 's/^/+./' >> direct.txt 
          sed -i "1i # $(echo Total: $(wc -l <direct.txt) lines\; Last Updated: $(date) )" direct.txt
 
