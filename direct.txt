@@ -1,4 +1,4 @@
-# Total: 175 lines; Last Updated: Sun May 18 16:16:55 UTC 2025
+# Total: 176 lines; Last Updated: Mon May 19 16:19:22 UTC 2025
 instant.arubanetworks.com
 setmeup.arubanetworks.com
 asusrouter.com
@@ -10,30 +10,31 @@ www.routerlogin.com
 tplogin.cn
 miwifi.com
 www.miwifi.com
-+.lan
++.internal
 +.localdomain
 +.example
 +.invalid
 +.localhost
 +.test
 +.local
-+.plex.direct
-+.phicomm.me
++.lan
++.zte.home
++.my.router
 +.ts.net
 +.home.arpa
-+.zte.home
++.hiwifi.com
 +.tplinkwifi.net
 +.tendawifi.com
-+.hiwifi.com
 +.leike.cc
++.plex.direct
 +.router.ctc
-+.my.router
++.phicomm.me
 +.peiluyou.com
-+.0.in-addr.arpa
 +.127.in-addr.arpa
 +.test.steampowered.com
++.0.in-addr.arpa
 +.10.in-addr.arpa
-+.81.100.in-addr.arpa
++.82.100.in-addr.arpa
 +.93.100.in-addr.arpa
 +.30.172.in-addr.arpa
 +.31.172.in-addr.arpa
@@ -68,8 +69,8 @@ www.miwifi.com
 +.78.100.in-addr.arpa
 +.79.100.in-addr.arpa
 +.80.100.in-addr.arpa
++.81.100.in-addr.arpa
 +.27.172.in-addr.arpa
-+.82.100.in-addr.arpa
 +.83.100.in-addr.arpa
 +.84.100.in-addr.arpa
 +.85.100.in-addr.arpa
