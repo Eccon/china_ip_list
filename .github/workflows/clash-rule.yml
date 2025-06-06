@@ -21,14 +21,20 @@ jobs:
         wget -qO- https://github.com/SagerNet/sing-box/releases/download/v${VER}/sing-box-${VER}-linux-amd64.tar.gz \
           | tar xvz --strip-components=1 -C /usr/local/bin sing-box-${VER}-linux-amd64/sing-box
         curl -s https://raw.githubusercontent.com/1-stream/1stream-public-utils/refs/heads/main/stream.list \
-          | sed -n '/^~/s/^.//p' | jq -Rs 'split(";\r\n")|{"version":1,"rules":[{"domain_regex":map(select(.!=""))}]}' > tmp-stream.json
+          | sed -n '/^~/s/^.//p' | jq -Rs 'split(";\r\n")|{"version":3,"rules":[{"domain_regex":map(select(.!=""))}]}' > tmp-stream.json
         sing-box rule-set compile --output streaming.srs tmp-stream.json && rm -rf tmp-stream.json
+        
+        # sukka cdn
+        curl -sL https://ruleset.skk.moe/Clash/domainset/cdn.txt \
+          | sed -e '/^#/d' -e 's/^\+\.//' \
+          | jq -R -s 'split("\n") | map(select(length > 0)) | {version: 3, rules: [{domain_suffix: .}]}' > tmp-cdn.json
+        sing-box rule-set compile --output cdn.srs tmp-cdn.json && rm -rf tmp-cdn.json
       env:
-        VER: 1.10.7
+        VER: 1.11.13
         
     - name: Run BanAD rules
       run: | 
-        curl -s https://ruleset.skk.moe/List/domainset/reject.conf | sed -e '/#/d' -e 's/^\.//' -e '/\.$/d' > sukka-reject.txt
+        # curl -s https://ruleset.skk.moe/List/domainset/reject.conf | sed -e '/#/d' -e 's/^\.//' -e '/\.$/d' > sukka-reject.txt
         curl -s https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt > loyal-reject.txt
         curl -s https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-domains.txt | sed -e '/#/d' > anti-reject.txt
         # HTTPDNS
