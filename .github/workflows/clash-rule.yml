@@ -26,7 +26,7 @@ jobs:
         
         # sukka cdn
         curl -sL https://ruleset.skk.moe/Clash/domainset/cdn.txt \
-          | sed -e '/^#/d' -e 's/^\+\.//' \
+          | sed -e '/^#/d' -e 's/^\+\.//' -e '/ytimg\.com/d' \
           | jq -R -s 'split("\n") | map(select(length > 0)) | {version: 3, rules: [{domain_suffix: .}]}' > tmp-cdn.json
         sing-box rule-set compile --output cdn.srs tmp-cdn.json && rm -rf tmp-cdn.json
       env:
