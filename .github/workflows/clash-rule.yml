@@ -54,6 +54,8 @@ jobs:
         curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/lark-global.list  >> proxy.txt
         #tld-!cn
         curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tld-!cn.list  >> proxy.txt
+        #cursor
+        curl -s https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cursor.list  >> proxy.txt
         # curl -s https://raw.githubusercontent.com/Kr328/V2rayDomains2Clash/generated/lark.yaml | sed -e "/#/d" -e "/payload:/d" -e '/^$/d' -e 's/- "//' -e 's/"//' >> proxy.txt
         echo "" >> proxy.txt && cat custom/proxy.txt | sed -e '/^#/d' -e '/^\s*$/d' -e 's/^/+./' >> proxy.txt 
         sort -u proxy.txt -o proxy.txt 
