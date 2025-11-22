@@ -30,7 +30,9 @@ jobs:
           | jq -R -s 'split("\n") | map(select(length > 0)) | {version: 3, rules: [{domain_suffix: .}]}' > tmp-cdn.json
         sing-box rule-set compile --output cdn.srs tmp-cdn.json && rm -rf tmp-cdn.json
         # remove ytimg.com from google.json for using ytimg.com to node online check
-        curl -sL  https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/google.json > tmp-google.json 
+        curl -sL  https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/google.json | \
+        jq '.rules[] |= ( (.domain // []) |= map(select(contains("ytimg.com") | not)) \
+        | (.domain_suffix // []) |= map(select(contains("ytimg.com") | not)) )' > tmp-google.json 
         sing-box rule-set compile --output google.srs tmp-google.json  && rm -rf tmp-google.json 
       env:
         VER: 1.11.13
