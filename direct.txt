@@ -1,4 +1,4 @@
-# Total: 176 lines; Last Updated: Sat Apr 11 16:31:52 UTC 2026
+# Total: 178 lines; Last Updated: Sun Apr 12 16:33:45 UTC 2026
 instant.arubanetworks.com
 setmeup.arubanetworks.com
 asusrouter.com
@@ -10,6 +10,7 @@ www.routerlogin.com
 tplogin.cn
 miwifi.com
 www.miwifi.com
+local.adguard.org
 +.internal
 +.localdomain
 +.example
@@ -124,6 +125,7 @@ www.miwifi.com
 +.113.0.203.in-addr.arpa
 +.100.51.198.in-addr.arpa
 +.2.0.192.in-addr.arpa
++.kis.v2.scr.kaspersky-labs.com
 +.255.255.255.255.in-addr.arpa
 +.8.b.d.0.1.0.0.2.ip6.arpa
 +.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
