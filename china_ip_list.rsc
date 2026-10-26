@@ -1,4 +1,4 @@
-#Last Modified: Mon Oct 19 23:11:46 UTC 2026
+#Last Modified: Mon Oct 26 23:27:03 UTC 2026
 /log info "Start updating CN_IP_List!"
 /log info "Start removing old list!"
 /ip firewall address-list remove [/ip firewall address-list find list=CN]
